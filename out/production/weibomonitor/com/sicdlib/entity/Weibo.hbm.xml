@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.sicdlib.entity">
+	<class name="Weibo" table="tb_weibo">
+		<id name="wb_id">
+			<generator class="native" />
+		</id>
+		<property name="wb_content" length="1024" />
+		<property name="wb_createdAt" length="100" />
+		<property name="wb_forwardNum" type="integer" length="11" />
+		<property name="wb_readNum" type="integer" length="11" />
+		<property name="wb_commentsNum" type="integer" length="11" />
+		<property name="wb_likeNum" type="integer" length="11" />
+		<property name="wb_fromDevice" length="50" />
+		<property name="wb_originalLink" length="256" />
+		<many-to-one name="wbuser" column="wbu_id"/>
+		<many-to-one name="keyWords" column="kw_id"/>
+		<!-- 一条微博包含多个微博评论 -->
+		<set name="wbComments" cascade="all" inverse="true">
+			<key column="wb_id"/>
+			<one-to-many class="WbComment"/>
+		</set>
+	</class>
+</hibernate-mapping>
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.sicdlib.entity">
+	<class name="User_userType" table="tb_user_usertype">
+		<id name="u_ut_id">
+			<generator class="native" />
+		</id>
+		
+		<!-- 本表包括多个用户 -->
+		<set name="users" cascade="all" inverse="true">
+			<key column="u_ut_id"/>
+			<one-to-many class="User"/>
+		</set>
+		<set name="userTypes" cascade="all" inverse="true">
+			<key column="u_ut_id"/>
+			<one-to-many class="UserType"/>
+		</set>
+		
+	</class>
+</hibernate-mapping>
+
