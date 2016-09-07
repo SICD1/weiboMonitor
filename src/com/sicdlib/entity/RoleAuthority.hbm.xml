@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.sicdlib.entity">
+	<class name="RoleAuthority" table="tb_role_privilege">
+		<id name="rp_id" type="java.lang.String" column="rp_id">
+			<generator class="uuid"/>
+		</id>
+
+		<!--&lt;!&ndash; 多个用户属于一个用户组 &ndash;&gt;-->
+		<!--<many-to-one name="user_userGroup" column="u_ug_id"/>-->
+		<!--&lt;!&ndash; 多个用户属于一个用户用户类型中间表 &ndash;&gt;-->
+		<!--<many-to-one name="user_userType" column="u_ut_id"/>-->
+		<set name="roles" cascade="all" inverse="true">
+			<key column="g_id"/>
+			<many-to-many class="User"/>
+		</set>
+	</class>
+</hibernate-mapping>
+

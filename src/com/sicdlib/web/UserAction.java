@@ -75,6 +75,8 @@ public class UserAction {
 		String u_pwd = req.getParameter("u_pwd");
 //		得到角色类型
 //		Integer usertype_id = Integer.parseInt(req.getParameter("usertype_id"));
+
+
 		boolean isRemPwd = Boolean.parseBoolean(req.getParameter("isRemPwd"));
 		System.out.println(u_name+":"+u_pwd);
 		PrintWriter out = resp.getWriter();

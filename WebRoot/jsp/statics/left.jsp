@@ -28,15 +28,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <i class="fa fa-bars"></i>
         </div>
         <nav class="templatemo-left-nav">
-          <ul id="nav">
+         <%-- <ul id="nav">
             <li><a href="<%=basePath%>index" class="active"><i class="fa fa-home fa-fw"></i>今日热点</a></li>
             <li><a href="<%=basePath%>latest"><i class="fa fa-bar-chart fa-fw"></i>最近要闻</a></li>
             <li><a href="<%=basePath%>maps"><i class="fa fa-database fa-fw"></i>地域分布图</a></li>
             <li><a href="<%=basePath%>perkeymaps"><i class="fa fa-database fa-fw"></i>特定关键词地图</a></li>
             <li><a href="<%=basePath%>search"><i class="fa fa-users fa-fw"></i>搜 索</a></li>
             <li><a href="<%=basePath%>analyser"><i class="fa fa-users fa-fw"></i>微分析</a></li>
-          </ul> 
+          </ul> --%>
+           <ul id="nav">
+        <c:forEach items="menulist">
+          <li><a href="${menulist.m_url}" class="active"><i class="fa fa-${menulist.m_icon} fa-fw"></i>${menulist.m_name}</a></li>
+        </c:forEach>
+           </ul>
         </nav>
+
       </div>
     </div>    
   </body>

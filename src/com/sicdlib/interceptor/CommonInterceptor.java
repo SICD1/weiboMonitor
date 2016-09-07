@@ -31,32 +31,33 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest req, HttpServletResponse resp,
 			Object Handler) throws ServletException, IOException{
 				
-		if("GET".equalsIgnoreCase(req.getMethod())){
-			
-			System.out.println("GET ......");
-			
-		}
-		log.info("***************执行1：preHandler**************");
-		
-		User user = (User) req.getSession().getAttribute("user");
-		//如果用户为空
-		if(user == null){
-			log.info("interceptor...跳转到login页面...");
-			req.getRequestDispatcher("login.jsp").forward(req, resp);
-			return false;
-		}
-		else if(user != null){
-			User_userType user_userType = user.getUser_userType();
-			if(user_userType.getU_ut_id() == 2){
-				return true;
-			}else {
-				req.getRequestDispatcher("adminlogin.jsp").forward(req, resp);
-				return false;
-			}
-		}
-		else {
-			return true;
-		}
+//		if("GET".equalsIgnoreCase(req.getMethod())){
+//
+//			System.out.println("GET ......");
+//
+//		}
+//		log.info("***************执行1：preHandler**************");
+//
+//		User user = (User) req.getSession().getAttribute("user");
+//		//如果用户为空
+//		if(user == null){
+//			log.info("interceptor...跳转到login页面...");
+//			req.getRequestDispatcher("login.jsp").forward(req, resp);
+//			return false;
+//		}
+//		else if(user != null){
+//			User_userType user_userType = user.getUser_userType();
+//			if(user_userType.getU_ut_id() == 2){
+//				return true;
+//			}else {
+//				req.getRequestDispatcher("adminlogin.jsp").forward(req, resp);
+//				return false;
+//			}
+//		}
+//		else {
+//			return true;
+//		}
+		return true;
 	}
 	
 	public void postHandle(HttpServletRequest req, HttpServletResponse resp, 

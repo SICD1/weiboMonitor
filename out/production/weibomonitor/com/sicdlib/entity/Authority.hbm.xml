@@ -5,12 +5,11 @@
 
 <hibernate-mapping package="com.sicdlib.entity">
 	<class name="Authority" table="tb_authority">
-		<id name="a_id">
-			<generator class="native" />
+		<id name="p_id"  type="java.lang.String" column="p_id">
+			<generator class="uuid" />
 		</id>
-		<property name="a_type" length="50" />
+		<property name="p_type" length="50" />
 		<!-- 多个权限属于一个用户角色权限中间表 -->
-		<many-to-one name="userType_Authority" column="ut_a_id"/>
 		
 	</class>
 </hibernate-mapping>

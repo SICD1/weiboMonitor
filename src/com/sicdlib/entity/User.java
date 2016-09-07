@@ -5,7 +5,7 @@ package com.sicdlib.entity;
  * */
 public class User {
 
-	private Integer u_id;
+	private String  u_id;        //用户ID
 	private String u_name;		//用户名
 	private String u_pwd;		//密码
 	private boolean u_sex;		//性别
@@ -14,13 +14,13 @@ public class User {
 	//多个用户属于一个'用户用户组表'
 	private User_userGroup user_userGroup;
 	//多个用户属于一个用户用户类型中间表
-	private User_userType user_userType;
-	
-	public User_userType getUser_userType() {
-		return user_userType;
+	//private User_userType user_userType;
+	public String getU_id() {
+		return u_id;
 	}
-	public void setUser_userType(User_userType user_userType) {
-		this.user_userType = user_userType;
+
+	public void setU_id(String u_id) {
+		this.u_id = u_id;
 	}
 	public User_userGroup getUser_userGroup() {
 		return user_userGroup;
@@ -28,12 +28,7 @@ public class User {
 	public void setUser_userGroup(User_userGroup user_userGroup) {
 		this.user_userGroup = user_userGroup;
 	}
-	public Integer getU_id() {
-		return u_id;
-	}
-	public void setU_id(Integer u_id) {
-		this.u_id = u_id;
-	}
+
 	public String getU_name() {
 		return u_name;
 	}

@@ -10,5 +10,5 @@ import edu.xjtsoft.base.service.DefaultEntityManager;
 @Service
 @Transactional
 public class Corpus_EssaysService extends DefaultEntityManager<Corpus_Essays> {
-	
+
 }

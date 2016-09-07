@@ -22,7 +22,6 @@ public class DefaultEntityManager<T> extends EntityManager<T> {
 		return entityDao;
 	}
 
-	@Autowired
 	protected void setSessionFactory(SessionFactory sessionFactory) {
 		entityDao = new HibernateDao<T>(sessionFactory, entityClass);
 	}
