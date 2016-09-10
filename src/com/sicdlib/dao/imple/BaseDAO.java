@@ -1,5 +1,15 @@
 package com.sicdlib.dao.imple;
 
+import java.io.Serializable;
+import java.lang.reflect.Method;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import javax.persistence.Table;
+
 import com.sicdlib.dao.IBaseDAO;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -9,19 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.Table;
-
-import java.io.Serializable;
-import java.lang.reflect.Method;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-
-/**
- * Created by Yh on 2016/9/8.
- */
 @Repository("baseDAO")
 @Transactional
 public class BaseDAO<T> implements IBaseDAO<T> {

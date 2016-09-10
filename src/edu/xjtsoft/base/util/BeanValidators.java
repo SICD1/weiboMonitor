@@ -13,8 +13,8 @@ import org.apache.commons.lang.StringUtils;
 
 /**
  * JSR303 Validator(Hibernate Validator)工具类.
- * 
- */
+ *
+*/
 @SuppressWarnings("unchecked")
 public class BeanValidators {
 

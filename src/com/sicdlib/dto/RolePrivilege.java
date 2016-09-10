@@ -1,6 +1,6 @@
 package com.sicdlib.dto;
 
-import com.sicdlib.entity.Role;
+import com.sicdlib.dto.Role;
 
 public class RolePrivilege {
     private String rp_id;private Role role;

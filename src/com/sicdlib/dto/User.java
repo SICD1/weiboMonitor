@@ -8,15 +8,15 @@ public class User {
     private String u_name;
     private String u_pwd;
     private String u_telephone;
-    private String u_mail;
-    private String u_sex;
-    private User userGroup;
+    private String u_email;
+    private int u_sex;
+    private Group userGroup;
 
-    public User getUserGroup() {
+    public Group getUserGroup() {
         return userGroup;
     }
 
-    public void setUserGroup(User userGroup) {
+    public void setUserGroup(Group userGroup) {
         this.userGroup = userGroup;
     }
 
@@ -52,19 +52,19 @@ public class User {
         this.u_telephone = u_telephone;
     }
 
-    public String getU_mail() {
-        return u_mail;
+    public String getU_email() {
+        return u_email;
     }
 
-    public void setU_mail(String u_mail) {
-        this.u_mail = u_mail;
+    public void setU_email(String u_email) {
+        this.u_email = u_email;
     }
 
-    public String getU_sex() {
+    public int getU_sex() {
         return u_sex;
     }
 
-    public void setU_sex(String u_sex) {
+    public void setU_sex(int u_sex) {
         this.u_sex = u_sex;
     }
 

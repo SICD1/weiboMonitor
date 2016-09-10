@@ -8,6 +8,7 @@
 		<id name="rp_id" type="java.lang.String" column="rp_id">
 			<generator class="uuid"/>
 		</id>
+
 		<many-to-one name="role" column="role_id"/>
 		<many-to-one name="privilege" column="p_id"/>
 

@@ -8,20 +8,15 @@
 		<id name="g_id" type="java.lang.String" column="g_id">
 			<generator class="uuid"/>
 		</id>
-		<property name="g_name" length="100" />
+		<property name="g_name" type="java.lang.String" column="g_name"/>
 		<!--多个组属于一个父类-->
-		<many-to-one name="groupParentId" column="g_parent_id"/>
+		<property name="parentId" type="java.lang.String" column="g_parent_id" />
 		<!-- 一个组包含多个用户 -->
 		<set name="users" cascade="all" inverse="true">
-			<key column="g_id"/>
+			<key column="u_id"/>
 			<one-to-many class="User"/>
 		</set>
-		<many-to-one name="role" column="r_id"/>
-
-		<!--&lt;!&ndash; 多个用户属于一个用户组 &ndash;&gt;-->
-		<!--<many-to-one name="user_userGroup" column="u_ug_id"/>-->
-		<!--&lt;!&ndash; 多个组属于一个角色 &ndash;&gt;-->
-		<many-to-one name="g_id" column="r_id"/>
+		<many-to-one name="role" column="r_id" lazy="proxy" cascade="save-update" fetch="join"/>
 	</class>
 </hibernate-mapping>
 

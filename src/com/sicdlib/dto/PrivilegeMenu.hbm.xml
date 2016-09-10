@@ -8,7 +8,7 @@
 		<id name="mp_id" type="java.lang.String" column="mp_id">
 			<generator class="uuid"/>
 		</id>
-<!--一个菜单-->
+
 		<many-to-one name="menu" column="m_id"/>
 		<many-to-one name="privilege" column="p_id"/>
 	</class>

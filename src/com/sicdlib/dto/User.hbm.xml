@@ -8,15 +8,13 @@
 		<id name="u_id" type="java.lang.String" column="u_id">
 			<generator class="uuid"/>
 		</id>
-		<property name="u_name" length="50" />
-		<property name="u_pwd" length="128" />
-		<property name="u_telephone" length="30" />
-		<property name="u_mail" length="30" />
-		<property name="u_sex" type="boolean"/>
-		<!--&lt;!&ndash; 多个用户属于一个用户组 &ndash;&gt;-->
-		<many-to-one name="userGroup" column="group_id"/>
-		<!--&lt;!&ndash; 多个用户属于一个用户用户类型中间表 &ndash;&gt;-->
-		<!--<many-to-one name="user_userType" column="u_ut_id"/>-->
+		<property name="u_name" type="java.lang.String" column="u_name"/>
+		<property name="u_pwd" type="java.lang.String" column="u_pwd"/>
+		<property name="u_telephone" type="java.lang.String" column="u_telephone"/>
+		<property name="u_email" type="java.lang.String" column="u_email"/>
+		<property name="u_sex" type="int" column="u_sex"/>
+
+		<many-to-one name="userGroup" class="Group" column="group_id" lazy="proxy" fetch="join" cascade="save-update"/>
 	</class>
 </hibernate-mapping>
 

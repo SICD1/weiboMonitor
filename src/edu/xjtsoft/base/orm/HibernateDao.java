@@ -15,7 +15,6 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.impl.CriteriaImpl;
 import org.hibernate.transform.ResultTransformer;
 
 import edu.xjtsoft.base.orm.support.MatchType;
@@ -90,17 +89,18 @@ public class HibernateDao<T> extends SimpleHibernateDao<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public Page<T> findByCriteria(final Page<T> page, final Criterion... criterions) {
-		Criteria c = createCriteria(criterions);
-
-		if (page.isAutoCount()) {
-			int totalCount = countCriteriaResult(c, page);
-			page.setTotalCount(totalCount);
-		}
-
-		setPageParameter(c, page);
-		List result = c.list();
-		page.setResult(result);
-		return page;
+//		Criteria c = createCriteria(criterions);
+//
+//		if (page.isAutoCount()) {
+//			int totalCount = countCriteriaResult(c, page);
+//			page.setTotalCount(totalCount);
+//		}
+//
+//		setPageParameter(c, page);
+//		List result = c.list();
+//		page.setResult(result);
+//		return page;
+		return null;
 	}
 
 	/**
@@ -141,49 +141,49 @@ public class HibernateDao<T> extends SimpleHibernateDao<T> {
 	/**
 	 * 执行count查询获得本次Criteria查询所能获得的对象总数.
 	 */
-	@SuppressWarnings("unchecked")
-	protected int countCriteriaResult(final Criteria c, final Page<T> page) {
-		CriteriaImpl impl = (CriteriaImpl) c;
-
-		// 先把Projection、ResultTransformer、OrderBy取出来,清空三者后再执行Count操作
-		Projection projection = impl.getProjection();
-		ResultTransformer transformer = impl.getResultTransformer();
-
-		List<CriteriaImpl.OrderEntry> orderEntries = null;
-		try {
-			orderEntries = (List) ReflectionUtil.getFieldValue(impl, "orderEntries");
-			ReflectionUtil.setFieldValue(impl, "orderEntries", new ArrayList());
-		} catch (Exception e) {
-			logger.error("不可能抛出的异常:{}", e.getMessage());
-		}
-
-		// 执行Count查询
-		int totalCount = (Integer) c.setProjection(Projections.rowCount()).uniqueResult();
-
-		// 将之前的Projection,ResultTransformer和OrderBy条件重新设回去
-		c.setProjection(projection);
-
-		if (projection == null) {
-			c.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
-		}
-		if (transformer != null) {
-			c.setResultTransformer(transformer);
-		}
-		try {
-			ReflectionUtil.setFieldValue(impl, "orderEntries", orderEntries);
-		} catch (Exception e) {
-			logger.error("不可能抛出的异常:{}", e.getMessage());
-		}
-
-		return totalCount;
-	}
+//	@SuppressWarnings("unchecked")
+//	protected int countCriteriaResult(final Criteria c, final Page<T> page) {
+//		CriteriaImpl impl = (CriteriaImpl) c;
+//
+//		// 先把Projection、ResultTransformer、OrderBy取出来,清空三者后再执行Count操作
+//		Projection projection = impl.getProjection();
+//		ResultTransformer transformer = impl.getResultTransformer();
+//
+//		List<CriteriaImpl.OrderEntry> orderEntries = null;
+//		try {
+//			orderEntries = (List) ReflectionUtil.getFieldValue(impl, "orderEntries");
+//			ReflectionUtil.setFieldValue(impl, "orderEntries", new ArrayList());
+//		} catch (Exception e) {
+//			logger.error("不可能抛出的异常:{}", e.getMessage());
+//		}
+//
+//		// 执行Count查询
+//		int totalCount = (Integer) c.setProjection(Projections.rowCount()).uniqueResult();
+//
+//		// 将之前的Projection,ResultTransformer和OrderBy条件重新设回去
+//		c.setProjection(projection);
+//
+//		if (projection == null) {
+//			c.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
+//		}
+//		if (transformer != null) {
+//			c.setResultTransformer(transformer);
+//		}
+//		try {
+//			ReflectionUtil.setFieldValue(impl, "orderEntries", orderEntries);
+//		} catch (Exception e) {
+//			logger.error("不可能抛出的异常:{}", e.getMessage());
+//		}
+//
+//		return totalCount;
+//	}
 
 	// 属性条件查询函数 //
 
 	/**
 	 * 按属性查找对象列表,支持多种匹配方式.
 	 * 
-	 * @param matchType 目前支持的取值为"EQUAL"与"LIKE".
+	 * @param matchTypeStr 目前支持的取值为"EQUAL"与"LIKE".
 	 */
 	public List<T> findByProperty(final String propertyName, final Object value, String matchTypeStr) {
 		MatchType matchType = Enum.valueOf(MatchType.class, matchTypeStr);

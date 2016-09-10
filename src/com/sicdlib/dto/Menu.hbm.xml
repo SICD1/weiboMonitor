@@ -5,15 +5,13 @@
 
 <hibernate-mapping package="com.sicdlib.dto">
 	<class name="Menu" table="tb_menu">
-		<id name="m_id" type="java.lang.String" column="m_id">
+		<id name="m_id" column="m_id">
 			<generator class="uuid"/>
 		</id>
 		<property name="m_name" length="100" />
 		<property name="m_icon" length="1000" />
 		<property name="m_url" length="1000" />
-		<!--&lt;!&ndash; 多个用户属于一个用户组 &ndash;&gt;-->
-		<!--<many-to-one name="user_userGroup" column="u_ug_id"/>-->
-		<!--&lt;!&ndash; 多个菜单属于一个父类 &ndash;&gt;-->
+
 		<many-to-one name="menu" column="parent_id"/>
 	</class>
 </hibernate-mapping>

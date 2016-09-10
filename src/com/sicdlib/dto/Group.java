@@ -1,9 +1,5 @@
 package com.sicdlib.dto;
 
-import com.sicdlib.entity.*;
-import com.sicdlib.entity.Role;
-import com.sicdlib.entity.User;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,11 +8,30 @@ import java.util.Set;
  */
 public class Group {
     private String g_id;
-    private Group groupParentId;
+    private String parentId;
     private String g_name;
     //一个用户与用户组中间表，包含多个用户
     private Set<User> users = new HashSet<User>();
     private Role role;
+
+    private Set<Group> childGroup = new HashSet<>();
+    private Group parentGroup;
+
+    public Set<Group> getChildGroup() {
+        return childGroup;
+    }
+
+    public void setChildGroup(Set<Group> childGroup) {
+        this.childGroup = childGroup;
+    }
+
+    public Group getParentGroup() {
+        return parentGroup;
+    }
+
+    public void setParentGroup(Group parentGroup) {
+        this.parentGroup = parentGroup;
+    }
 
     public String getG_id() {
         return g_id;
@@ -26,12 +41,12 @@ public class Group {
         this.g_id = g_id;
     }
 
-    public Group getGroupParentId() {
-        return groupParentId;
+    public String getParentId() {
+        return parentId;
     }
 
-    public void setGroupParentId(Group groupParentId) {
-        this.groupParentId = groupParentId;
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
     }
 
     public String getG_name() {
