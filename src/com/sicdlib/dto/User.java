@@ -1,9 +1,11 @@
 package com.sicdlib.dto;
 
+import java.io.Serializable;
+
 /**
  * Created by maninit on 2016/9/7.
  */
-public class User {
+public class User implements Serializable{
     private String u_id;
     private String u_name;
     private String u_pwd;

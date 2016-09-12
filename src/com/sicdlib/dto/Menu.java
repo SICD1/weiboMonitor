@@ -1,14 +1,29 @@
 package com.sicdlib.dto;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 菜单属性
  */
 public class Menu {
     private String  m_id;
     private String m_name;
-    public String m_icon;
+    private String m_icon;
     private String m_url;
-    private Menu menu;//父类的id映射属性
+    private Menu parentMenu;//父类的id映射属性
+    private PrivilegeMenu privilegeMenu;
+
+    public Set<Menu> getChildMenu() {
+        return childMenu;
+    }
+
+    public void setChildMenu(Set<Menu> childMenu) {
+        this.childMenu = childMenu;
+    }
+
+    private Set<Menu>  childMenu = new HashSet<>();
+
     public String getM_id() {
         return m_id;
     }
@@ -40,13 +55,20 @@ public class Menu {
     public void setM_url(String m_url) {
         this.m_url = m_url;
     }
-    public Menu getMenu() {
-        return menu;
+    public Menu getParentMenu() {
+        return parentMenu;
     }
 
-    public void setMenu(Menu menu) {
-        this.menu = menu;
+    public void setParentMenu(Menu parentMenu) {
+        this.parentMenu = parentMenu;
     }
 
+    public PrivilegeMenu getPrivilegeMenu() {
+        return privilegeMenu;
+    }
+
+    public void setPrivilegeMenu(PrivilegeMenu privilegeMenu) {
+        this.privilegeMenu = privilegeMenu;
+    }
 
 }

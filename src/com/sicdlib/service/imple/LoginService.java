@@ -29,6 +29,7 @@ public class LoginService implements ILoginService{
     @Override
     public User validateLogin(String name, String password) {
         User user = loginDAO.getUserByName(name);
+        System.out.println(user.getUserGroup().getG_name());
         if(MD5Util.validatePassword(user.getU_pwd(), password)) {
             return user;
         }
