@@ -9,8 +9,8 @@
 			<generator class="uuid"/>
 		</id>
 
-		<many-to-one name="menu" column="m_id"/>
-		<many-to-one name="privilege" column="p_id"/>
+		<many-to-one name="menu" class="Menu" column="m_id" cascade="all" fetch="select"/>
+		<many-to-one name="privilege" class="Privilege" column="p_id" cascade="all" fetch="select"/>
 	</class>
 </hibernate-mapping>
 

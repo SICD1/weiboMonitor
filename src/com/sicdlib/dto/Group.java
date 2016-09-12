@@ -1,17 +1,17 @@
 package com.sicdlib.dto;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Created by maninit on 2016/9/7.
  */
-public class Group {
+public class Group implements Serializable{
     private String g_id;
-    private String parentId;
     private String g_name;
     //一个用户与用户组中间表，包含多个用户
-    private Set<User> users = new HashSet<User>();
+    private Set<User> users = new HashSet<>();
     private Role role;
 
     private Set<Group> childGroup = new HashSet<>();
@@ -39,14 +39,6 @@ public class Group {
 
     public void setG_id(String g_id) {
         this.g_id = g_id;
-    }
-
-    public String getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
     }
 
     public String getG_name() {

@@ -3,7 +3,8 @@ package com.sicdlib.dto;
 import com.sicdlib.dto.Role;
 
 public class RolePrivilege {
-    private String rp_id;private Role role;
+    private String rp_id;
+    private Role role;
     private Privilege privilege;
 
 

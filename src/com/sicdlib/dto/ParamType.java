@@ -4,9 +4,9 @@ package com.sicdlib.dto;
  * Created by Yh on 2016/9/8.
  */
 public class ParamType {
-    String id;
-    String name;
-    String desc;
+    private String id;
+    private String name;
+    private String desc;
 
     public String getId() {
         return id;
