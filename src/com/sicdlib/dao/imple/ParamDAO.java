@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 /**
  * Created by Yh on 2016/9/13.
  */
-@Repository
+@Repository("paramDAO")
 public class ParamDAO implements IParamDAO {
     @Autowired
     IBaseDAO baseDAO;
@@ -20,7 +20,7 @@ public class ParamDAO implements IParamDAO {
                 "from Param p, ParamType pt " +
                 "where p.name = '" + param + "' and pt.name = '" + paramType + "'";
 
-        int value = (int) baseDAO.get(hql);
+        int value = Integer.parseInt((String) baseDAO.get(hql));
 
         return value;
     }
