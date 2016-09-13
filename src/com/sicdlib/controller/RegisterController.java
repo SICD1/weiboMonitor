@@ -1,6 +1,8 @@
 package com.sicdlib.controller;
 
+import com.sicdlib.dto.Constant;
 import com.sicdlib.dto.User;
+import com.sicdlib.service.IParamService;
 import com.sicdlib.service.IRegisterService;
 import com.sicdlib.util.MD5Util.MD5Util;
 import com.sicdlib.util.mailUtil.SendMails;
@@ -27,6 +29,10 @@ public class RegisterController {
     @Qualifier("registerService")
     IRegisterService registerService;
 
+    @Autowired
+    @Qualifier("paramService")
+    IParamService paramService;
+
     @RequestMapping(value="register/{id}", method = RequestMethod.GET)
     public String register(@PathVariable String id){
         System.out.println(id);
@@ -50,13 +56,10 @@ public class RegisterController {
         user.setU_pwd(password);
         user.setU_email(email);
         user.setU_telephone(telephone);
-        if(sex.equals("female")) {
-            user.setU_sex(2);
-        } else if(sex.equals("male")) {
-            user.setU_sex(1);
-        } else {
-            user.setU_sex(0);
-        }
+
+        String paramType = Constant.PARAM_SEX;
+        int sex_value = paramService.getParamValue(paramType, sex);
+        user.setU_sex(sex_value);
 
         boolean result = registerService.registerNormalUser(user);
         if(result) {
