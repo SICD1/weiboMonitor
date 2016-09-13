@@ -69,3 +69,27 @@ public class LoginController {
         out.print("failure");
     }
 }
+
+    /**
+     * 用户权限菜单过滤
+     * @param req
+     * @param resp
+     * @return
+     * @throws IOException
+     */
+    @RequestMapping("/check")
+    public ModelAndView check(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        ModelAndView mav = new ModelAndView();
+        String name = req.getParameter("u_name");
+        //根据用户名字获取ID
+        String userId = loginService.getIdByUserName(name);
+        //根据用户ID获取该用户拥有权限的菜单信息
+        List list = loginService.getMenu(userId);
+        //循环遍历list获取菜单的名字和路径
+        if (list != null){
+            //给页面返回一个List（菜单），当页面接收List时，对其进行处理
+            mav.addObject("list",list);
+        }
+        return mav;
+    }
+}
