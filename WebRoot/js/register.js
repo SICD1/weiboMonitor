@@ -1,16 +1,16 @@
 var overall_user_name = "";
 function checkUser(){
 	var u_name = $.trim($("#u_name").val());
-	if(u_name==""||u_name.length<6){
-		$("#u_name_prompt").html("请输入6位数密码");
+	if(u_name==""){
+		$("#u_name_prompt").html("请输入用户名");
 		$("#u_name_prompt").css("display","");
 		return false;
 	}else {
 		$.ajax({
 			type: 'post',
-			url: 'user/isExistUser?u_name='+u_name,
+			url: 'isExistUser?u_name='+u_name,
 			success:function(msg){
-				if('success' == msg){
+				if('failure' == msg){
 					$("#u_name_prompt").html("该用户名已被使用");
 					$("#u_name_prompt").css("display","");
 					return false;
@@ -67,7 +67,7 @@ function check_R_Pwd(){
 }
 
 function check_u_mail(){
-	var u_mail = $("#u_mail").val();
+	var u_mail = $("#u_email").val(); 
 	var reg = /[a-z0-9-]{1,30}@[a-z0-9-]{1,65}.[a-z]{3}/;
 	if(!reg.test(u_mail)){
 		$("#u_mail_prompt").html("邮箱有误");
@@ -101,18 +101,18 @@ function modInfo_check_u_mail(user_email){
 	}
 }
 
-function check_u_telphone(){
-	var u_telphone = $("#u_telphone").val();
+function check_u_telephone(){
+	var u_telphone = $("#u_telephone").val();
 	var reg = /^1\d{10}$/;
 	if(!reg.test(u_telphone)){
-		$("#u_telphone_prompt").html("手机号有误");
+		$("#u_telephone_prompt").html("手机号有误");
 		$("#u_telphone_prompt").css("display","");		
 		return false;			
 	}else{
-		$("#u_telphone_prompt").html("");
-		$("#u_telphone_prompt").css("display","none");	
-		$("#btn_send_telphone_code").css("display","");
-		$("#txt_verfication_telphone_code").css("display","inline");
+		$("#u_telephone_prompt").html("");
+		$("#u_telephone_prompt").css("display","none");
+		$("#btn_send_telephone_code").css("display","");
+		$("#txt_verfication_telephone_code").css("display","inline");
 		return true;
 	}
 }
@@ -122,7 +122,7 @@ function send_verfication_code(){
 	if(second == 10){
 		$.ajax({
 			type : 'post',
-			url : 'user/register/sendMail?u_mail='+u_mail,
+			url : 'sendMail?u_mail='+u_mail,
 			success:function(msg){
 				
 			}
@@ -158,7 +158,8 @@ function send_verfication_telphone_code(){
 }
 
 function registerCheck(){
-	if(checkUser()&&checkPwd()&&check_R_Pwd()&&check_u_mail()&&check_u_telphone()&&valid_mail_code()){
+	// if(checkUser()&&checkPwd()&&check_R_Pwd()&&check_u_mail()&&check_u_telephone()&&valid_mail_code()){
+	if(checkUser()&&checkPwd()&&check_R_Pwd()&&check_u_mail()&&check_u_telephone()){
 		return true;
 	}else{
 		return false;
@@ -167,7 +168,8 @@ function registerCheck(){
 
 //修改个人信息
 function modInfoCheck(){
-	if(modInfo_checkUser()&&modInfo_checkPwd()&&check_R_Pwd()&&modInfo_check_u_mail()&&check_u_telphone()&&valid_mail_code()){
+	// if(modInfo_checkUser()&&modInfo_checkPwd()&&check_R_Pwd()&&modInfo_check_u_mail()&&check_u_telephone()&&valid_mail_code()){
+	if(modInfo_checkUser()&&modInfo_checkPwd()&&check_R_Pwd()&&modInfo_check_u_mail()&&check_u_telephone()){
 		alert(123);
 		return true;
 	}else{

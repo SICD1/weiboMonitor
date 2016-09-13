@@ -74,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          <h1 style="font-family: '华文行楷';font-size: 34px;">微博舆情分析系统</h1>
 	        </header>
 	       <!--   <form action="user/login" method="post" onsubmit="return login()" class="templatemo-login-form">-->
-	       	<form action="user/login" method="post" onsubmit="return login()" class="templatemo-login-form">
+	       	<form action="login" method="post" onsubmit="return login()" class="templatemo-login-form">
 	        	<div class="form-group">
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
@@ -109,7 +109,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        </form>
 		</div>
 		<div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
-			没有账户? <strong><a href="user/register/0" class="blue-text">立即注册</a></strong>&nbsp;&nbsp;</p>
+			没有账户? <strong><a href="register/0" class="blue-text">立即注册</a></strong>&nbsp;&nbsp;</p>
 			
 		</div>
 		
@@ -127,7 +127,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			var isRemPwd = $("#c1").is(':checked');
 			$.ajax({
 				type:'post',
-				url:'user/login?u_name='+u_name+'&u_pwd='+u_pwd+'&isRemPwd='+isRemPwd,
+				url:'login?u_name='+u_name+'&u_pwd='+u_pwd+'&isRemPwd='+isRemPwd,
 				success:function(msg){
 					if('success' == msg){
 						location.href= "<%=basePath%>index";

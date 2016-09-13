@@ -20,13 +20,12 @@ import java.net.URLEncoder;
  * Created by Yh on 2016/9/8.
  */
 @Controller
-@RequestMapping("/user/*")
 public class LoginController {
     @Autowired
     @Qualifier("loginService")
     private ILoginService loginService;
 
-    @RequestMapping
+    @RequestMapping("login")
     public void login(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String name = req.getParameter("u_name");
         String password = req.getParameter("u_pwd");

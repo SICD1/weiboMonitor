@@ -10,28 +10,11 @@ import java.util.Set;
 public class Group implements Serializable{
     private String g_id;
     private String g_name;
+    private String parent_id;
+
     //一个用户与用户组中间表，包含多个用户
     private Set<User> users = new HashSet<>();
     private Role role;
-
-    private Set<Group> childGroup = new HashSet<>();
-    private Group parentGroup;
-
-    public Set<Group> getChildGroup() {
-        return childGroup;
-    }
-
-    public void setChildGroup(Set<Group> childGroup) {
-        this.childGroup = childGroup;
-    }
-
-    public Group getParentGroup() {
-        return parentGroup;
-    }
-
-    public void setParentGroup(Group parentGroup) {
-        this.parentGroup = parentGroup;
-    }
 
     public String getG_id() {
         return g_id;
@@ -63,5 +46,13 @@ public class Group implements Serializable{
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public String getParent_id() {
+        return parent_id;
+    }
+
+    public void setParent_id(String parent_id) {
+        this.parent_id = parent_id;
     }
 }
