@@ -11,17 +11,7 @@
 		<property name="m_name" column="m_name" type="java.lang.String" />
 		<property name="m_icon" column="m_icon" type="java.lang.String" />
 		<property name="m_url" column="m_url" type="java.lang.String" />
-
-		<many-to-one name="privilegeMenu" class="PrivilegeMenu" fetch="select" cascade="all" />
-
-		<!--自身双向关联-->
-		<set name="childMenu">
-			<key>
-				<column name="parent_id" />
-			</key>
-			<one-to-many class="Menu" />
-		</set>
-		<many-to-one name="parentMenu" column="parent_id" class="Menu" fetch="select" cascade="save-update" />
+		<property name="parent_id" column="parent_id" type="java.lang.String" />
 	</class>
 </hibernate-mapping>
 

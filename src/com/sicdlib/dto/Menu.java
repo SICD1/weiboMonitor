@@ -7,22 +7,11 @@ import java.util.Set;
  * 菜单属性
  */
 public class Menu {
-    private String  m_id;
+    private String m_id;
     private String m_name;
     private String m_icon;
     private String m_url;
-    private Menu parentMenu;//父类的id映射属性
-    private PrivilegeMenu privilegeMenu;
-
-    public Set<Menu> getChildMenu() {
-        return childMenu;
-    }
-
-    public void setChildMenu(Set<Menu> childMenu) {
-        this.childMenu = childMenu;
-    }
-
-    private Set<Menu>  childMenu = new HashSet<>();
+    private Menu parent_id;
 
     public String getM_id() {
         return m_id;
@@ -55,20 +44,12 @@ public class Menu {
     public void setM_url(String m_url) {
         this.m_url = m_url;
     }
-    public Menu getParentMenu() {
-        return parentMenu;
+
+    public Menu getParent_id() {
+        return parent_id;
     }
 
-    public void setParentMenu(Menu parentMenu) {
-        this.parentMenu = parentMenu;
+    public void setParent_id(Menu parent_id) {
+        this.parent_id = parent_id;
     }
-
-    public PrivilegeMenu getPrivilegeMenu() {
-        return privilegeMenu;
-    }
-
-    public void setPrivilegeMenu(PrivilegeMenu privilegeMenu) {
-        this.privilegeMenu = privilegeMenu;
-    }
-
 }

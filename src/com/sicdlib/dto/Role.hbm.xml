@@ -8,17 +8,8 @@
 		<id name="r_id" type="java.lang.String" column="r_id">
 			<generator class="uuid"/>
 		</id>
-		<property name="r_name" length="50" />
+		<property name="r_name"   type="java.lang.String"  column="r_name" />
 
-		<set name="groups" cascade="all" inverse="true">
-			<key column="role_id"/>
-			<one-to-many class="Group"/>
-		</set>
-
-		<set name="privileges" cascade="all">
-			<key column="role_id"></key>
-			<one-to-many class="RolePrivilege" />
-		</set>
 	</class>
 </hibernate-mapping>
 

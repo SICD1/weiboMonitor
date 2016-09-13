@@ -12,16 +12,7 @@ public class User implements Serializable{
     private String u_telephone;
     private String u_email;
     private int u_sex;
-    private Group userGroup;
-
-    public Group getUserGroup() {
-        return userGroup;
-    }
-
-    public void setUserGroup(Group userGroup) {
-        this.userGroup = userGroup;
-    }
-
+    private String group_id;
     public String getU_id() {
         return u_id;
     }
@@ -70,4 +61,11 @@ public class User implements Serializable{
         this.u_sex = u_sex;
     }
 
+    public String getGroup_id() {
+        return group_id;
+    }
+
+    public void setGroup_id(String group_id) {
+        this.group_id = group_id;
+    }
 }

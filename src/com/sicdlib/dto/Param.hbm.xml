@@ -8,9 +8,9 @@
         <id name="id" type="java.lang.String" column="PARAM_ID">
             <generator class="uuid"/>
         </id>
-        <property name="value" column="PARAM_VALUE" type="java.lang.String" />
-        <property name="name" column="PARAM_NAME" type="java.lang.String" />
-        <property name="desc" column="PARAM_DESC" type="java.lang.String" />
+        <property name="value" type="java.lang.String" column="PARAM_VALUE" />
+        <property name="name"  type="java.lang.String" column="PARAM_NAME"/>
+        <property name="desc"  type="java.lang.String" column="PARAM_DESC" />
 
         <many-to-one name="type_id" column="PARAM_TYPE_ID" class="ParamType"/>
     </class>

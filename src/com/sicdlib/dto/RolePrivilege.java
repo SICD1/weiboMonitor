@@ -4,9 +4,8 @@ import com.sicdlib.dto.Role;
 
 public class RolePrivilege {
     private String rp_id;
-    private Role role;
-    private Privilege privilege;
-
+    private String role_id;
+    private String privilege_id;
 
     public String getRp_id() {
         return rp_id;
@@ -16,19 +15,19 @@ public class RolePrivilege {
         this.rp_id = rp_id;
     }
 
-    public Role getRole() {
-        return role;
+    public String getRole_id() {
+        return role_id;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRole_id(String role_id) {
+        this.role_id = role_id;
     }
 
-    public Privilege getPrivilege() {
-        return privilege;
+    public String getPrivilege_id() {
+        return privilege_id;
     }
 
-    public void setPrivilege(Privilege privilege) {
-        this.privilege = privilege;
+    public void setPrivilege_id(String privilege_id) {
+        this.privilege_id = privilege_id;
     }
 }

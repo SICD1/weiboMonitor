@@ -10,25 +10,6 @@ public class Privilege {
     private String p_id;
     private String p_type;
 
-    private Set<RolePrivilege> rolePrivileges = new HashSet<>();
-    private PrivilegeMenu privilegeMenu;
-
-    public Set<RolePrivilege> getRolePrivileges() {
-        return rolePrivileges;
-    }
-
-    public void setRolePrivileges(Set<RolePrivilege> rolePrivileges) {
-        this.rolePrivileges = rolePrivileges;
-    }
-
-    public PrivilegeMenu getPrivilegeMenu() {
-        return privilegeMenu;
-    }
-
-    public void setPrivilegeMenu(PrivilegeMenu privilegeMenu) {
-        this.privilegeMenu = privilegeMenu;
-    }
-
     public String getP_id() {
         return p_id;
     }

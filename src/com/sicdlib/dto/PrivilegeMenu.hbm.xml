@@ -8,9 +8,9 @@
 		<id name="mp_id" type="java.lang.String" column="mp_id">
 			<generator class="uuid"/>
 		</id>
+		<property name="menu_id" type="java.lang.String" column="menu_id" />
+		<property name="privilege_id" type="java.lang.String" column="privilege_id" />
 
-		<many-to-one name="menu" class="Menu" column="m_id" cascade="all" fetch="select"/>
-		<many-to-one name="privilege" class="Privilege" column="p_id" cascade="all" fetch="select"/>
 	</class>
 </hibernate-mapping>
 

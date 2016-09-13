@@ -13,8 +13,7 @@
 		<property name="u_telephone" type="java.lang.String" column="u_telephone"/>
 		<property name="u_email" type="java.lang.String" column="u_email"/>
 		<property name="u_sex" type="int" column="u_sex"/>
-
-		<many-to-one name="userGroup" class="Group" column="group_id" lazy="proxy" fetch="join" cascade="save-update"/>
+		<property name="group_id" type="java.lang.String" column="group_id" />
 	</class>
 </hibernate-mapping>
 

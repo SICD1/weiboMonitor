@@ -11,26 +11,6 @@ public class Role implements Serializable{
     private String r_id;
     private String r_name;
 
-    private Set<Group> groups = new HashSet<>();
-
-    private Set<RolePrivilege> privileges = new HashSet<>();
-
-    public Set<RolePrivilege> getPrivileges() {
-        return privileges;
-    }
-
-    public void setPrivileges(Set<RolePrivilege> privileges) {
-        this.privileges = privileges;
-    }
-
-    public Set<Group> getGroups() {
-        return groups;
-    }
-
-    public void setGroups(Set<Group> groups) {
-        this.groups = groups;
-    }
-
     public String getR_id() {
         return r_id;
     }
