@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </ul> --%>
            <ul id="nav">
         <c:forEach items="menulist">
-          <li><a href="${menulist.m_url}" class="active"><i class="fa fa-${menulist.m_icon} fa-fw"></i>${menulist.m_name}</a></li>
+          <li><a href="<%=basePath%>${menulist.m_url}" class="active"><i class="fa fa-${menulist.m_icon} fa-fw"></i>${menulist.m_name}</a></li>
         </c:forEach>
            </ul>
         </nav>

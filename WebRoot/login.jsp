@@ -11,6 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	String u_name = "";
 	String u_pwd = "";
 	String checked = "";
+	//删除cookie，删除cookie的话，只需要将Cookie的生存期设为0即可
 	Cookie[] cookies = request.getCookies();
 	if(cookies!=null&&cookies.length>0){
 		for(int i = 0;i<cookies.length;i++){
@@ -130,6 +131,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				url:'login?u_name='+u_name+'&u_pwd='+u_pwd+'&isRemPwd='+isRemPwd,
 				success:function(msg){
 					if('success' == msg){
+						$.ajax({
+							type:'post',
+							url:'user/ckeck?u_name='+u_name,
+							success:function(result){
+								if('success' == result){
+									//此处处理后台返回的list集合
+									//暂时未处理，根据页面需要，处理需要的list集合的值
+								}
+							}
+						});
+
 						location.href= "<%=basePath%>index";
 					}else if('failure' == msg){
 						$("#prompt").html("用户名或密码错误！");

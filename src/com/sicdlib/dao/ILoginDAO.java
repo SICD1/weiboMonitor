@@ -10,4 +10,6 @@ import java.util.List;
  */
 public interface ILoginDAO {
     User getUserByName(String name);
+    List<Map> getMenu(String userId);
+    String getIdByUserName(String name);
 }
