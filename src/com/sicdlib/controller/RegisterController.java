@@ -79,7 +79,6 @@ public class RegisterController {
             out.print("failure");
         }
     }
-
     @RequestMapping("sendMail")
     public void sendMail(HttpServletRequest req) throws MessagingException {
         System.out.println("已经加载...");

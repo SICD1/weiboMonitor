@@ -67,12 +67,7 @@ public class LoginController {
                 resp.addCookie(u_pwd_temp_cookie);
             }
             List<Menu> menus=loginService.getMenu(user1.getU_id());
-            //model.addAttribute("menuList", menus);
             session.setAttribute("user", user);
-//          org.codehaus.jackson.map.ObjectMapper objectMapper = new org.codehaus.jackson.map.ObjectMapper();
-//          resp.setContentType("text/html;charset=utf-8");
-//          String json = objectMapper.writeValueAsString(menus);
-//          out.write(json);
             session.setAttribute("menuList",menus);
             out.print("success");
             System.out.println(menus.size());
@@ -83,7 +78,6 @@ public class LoginController {
 
     @RequestMapping("index")
     private String index(HttpServletRequest req){
-
         return "WEB-INF/index";
     }
 
@@ -98,7 +92,7 @@ public class LoginController {
     public ModelAndView check(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         ModelAndView mav = new ModelAndView();
         String name = req.getParameter("u_name");
-       System.out.print(name);
+        System.out.print(name);
         //根据用户名字获取ID
         String userId = loginService.getIdByUserName(name);
         //根据用户ID获取该用户拥有权限的菜单信息
