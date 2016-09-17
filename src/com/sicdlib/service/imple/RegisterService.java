@@ -1,5 +1,6 @@
 package com.sicdlib.service.imple;
 
+import com.sicdlib.dao.IGroupDAO;
 import com.sicdlib.dao.IRegisterDAO;
 import com.sicdlib.dao.IRoleDAO;
 import com.sicdlib.dao.IUserDAO;
@@ -29,11 +30,19 @@ public class RegisterService implements IRegisterService {
     @Qualifier("userDAO")
     private IUserDAO userDAO;
 
+    @Autowired
+    @Qualifier("groupDAO")
+    private IGroupDAO groupDAO;
+
 
     @Override
     public boolean registerNormalUser(User user) {
-        Group group = getNormalGroup();
-        user.setUserGroup(group);
+        String groupId = getUserGroupId();
+        if (groupId == null) {
+            Group userGroup = getNormalGroup();
+            groupId = groupDAO.InsertGroup(userGroup);
+        }
+        user.setGroup_id(groupId);
 
         boolean result = registerDAO.insertUser(user);
 
@@ -56,10 +65,21 @@ public class RegisterService implements IRegisterService {
         Role role = roleDAO.getRoleByName(roleName);
 
         Group group = new Group();
-        group.setParent_id("0");
-        group.setRole(role);
+        group.setG_parent_id("0");
+        group.setRole_id(role.getR_id());
         group.setG_name(Constant.GROUP_NORMAL_USER);
 
         return group;
+    }
+
+    private String getUserGroupId() {
+        String userGroup = Constant.GROUP_NORMAL_USER;
+        Group group = groupDAO.getGroupByName(userGroup);
+        if (group != null) {
+
+            return group.getG_id();
+        }
+
+        return null;
     }
 }

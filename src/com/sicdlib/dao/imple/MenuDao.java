@@ -17,7 +17,7 @@ public class MenuDao implements IMenuDAO {
 
     @Override
     public List<Menu> getMenuByuserName(String name) {
-        String sql="select     "
+        String sql="select     ";
         return null;
     }
 }
