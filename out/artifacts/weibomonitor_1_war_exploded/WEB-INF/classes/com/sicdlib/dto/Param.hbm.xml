@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.sicdlib.dto">
+    <class name="Param" table="param">
+        <id name="id" type="java.lang.String" column="PARAM_ID">
+            <generator class="uuid"/>
+        </id>
+        <property name="value" type="java.lang.String" column="PARAM_VALUE" />
+        <property name="name"  type="java.lang.String" column="PARAM_NAME"/>
+        <property name="desc"  type="java.lang.String" column="PARAM_DESC" />
+
+        <many-to-one name="type_id" column="PARAM_TYPE_ID" class="ParamType"/>
+    </class>
+</hibernate-mapping>

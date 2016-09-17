@@ -1,20 +1,25 @@
 package com.sicdlib.controller;
 
+import com.sicdlib.dto.Menu;
 import com.sicdlib.dto.User;
 import com.sicdlib.service.ILoginService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.net.URLEncoder;
 import java.util.List;
 
@@ -29,14 +34,12 @@ public class LoginController {
 
     @RequestMapping("login")
     public void login(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+       System.out.println("login!!!!!!!!!!!!!!!!!!!!");
         String name = req.getParameter("u_name");
         String password = req.getParameter("u_pwd");
-//		得到角色类型
-//		Integer usertype_id = Integer.parseInt(req.getParameter("usertype_id"));
-
-
+        User user1= loginService.getUserByName(name);
         boolean isRemPwd = Boolean.parseBoolean(req.getParameter("isRemPwd"));
-//        System.out.println(u_name+":"+u_pwd);
+        //boolean isRemPwd = true;
         PrintWriter out = resp.getWriter();
         HttpSession session = req.getSession();
         User user = loginService.validateLogin(name, password);
@@ -46,7 +49,6 @@ public class LoginController {
                 Cookie u_pwdCookie = new Cookie("u_pwd", password);
                 u_nameCookie.setPath(req.getContextPath()+"/");
                 u_pwdCookie.setPath(req.getContextPath()+"/");
-
                 u_nameCookie.setMaxAge(7*24*60*60);
                 u_pwdCookie.setMaxAge(7*24*60*60);
 
@@ -64,11 +66,25 @@ public class LoginController {
                 resp.addCookie(u_name_temp_cookie);
                 resp.addCookie(u_pwd_temp_cookie);
             }
+            List<Menu> menus=loginService.getMenu(user1.getU_id());
+            //model.addAttribute("menuList", menus);
             session.setAttribute("user", user);
+//          org.codehaus.jackson.map.ObjectMapper objectMapper = new org.codehaus.jackson.map.ObjectMapper();
+//          resp.setContentType("text/html;charset=utf-8");
+//          String json = objectMapper.writeValueAsString(menus);
+//          out.write(json);
+            session.setAttribute("menuList",menus);
             out.print("success");
+            System.out.println(menus.size());
             return ;
         }
-        out.print("failure");
+        out.print("failture");
+    }
+
+    @RequestMapping("index")
+    private String index(HttpServletRequest req){
+
+        return "WEB-INF/index";
     }
 
     /**
@@ -78,10 +94,11 @@ public class LoginController {
      * @return
      * @throws IOException
      */
-    @RequestMapping("/check")
+   @RequestMapping("check")
     public ModelAndView check(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         ModelAndView mav = new ModelAndView();
         String name = req.getParameter("u_name");
+       System.out.print(name);
         //根据用户名字获取ID
         String userId = loginService.getIdByUserName(name);
         //根据用户ID获取该用户拥有权限的菜单信息
@@ -93,4 +110,5 @@ public class LoginController {
         }
         return mav;
     }
+
 }

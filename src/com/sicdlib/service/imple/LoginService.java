@@ -1,7 +1,10 @@
 package com.sicdlib.service.imple;
 
-import com.sicdlib.dao.IBaseDAO;
 import com.sicdlib.dao.ILoginDAO;
+import com.sicdlib.dao.IMenuDAO;
+import com.sicdlib.dao.IRoleDAO;
+import com.sicdlib.dto.Menu;
+import com.sicdlib.dto.Role;
 import com.sicdlib.dto.User;
 import com.sicdlib.service.ILoginService;
 
@@ -22,10 +25,17 @@ public class LoginService implements ILoginService{
     @Qualifier("loginDAO")
     private ILoginDAO loginDAO;
 
+    @Autowired
+    @Qualifier("roleDAO")
+    private IRoleDAO roleDAO;
+
+    @Autowired
+    @Qualifier("menuDAO")
+    private IMenuDAO menuDAO;
+
     @Override
     public User validateLogin(String name, String password) {
         User user = loginDAO.getUserByName(name);
-        System.out.println(user.getUserGroup().getG_name());
         if(MD5Util.validatePassword(user.getU_pwd(), password)) {
             return user;
         }
@@ -34,17 +44,27 @@ public class LoginService implements ILoginService{
 
     //根据用户ID获取该用户拥有权限的菜单数据
     @Override
-    public List<Map> getMenu(String userId) {
-        List<Map> menu = loginDAO.getMenu(userId);
+    public List<Menu> getMenu(String userId) {
+        Role role = roleDAO.getRoleByUserID(userId);
+        String roleId = role.getR_id();
+        if(roleId == null) {
+            return null;
+        }
 
+        List<Menu> menu = menuDAO.getMenusByRoleId(roleId);
         return menu;
     }
 
-    //根据用户名字获取该用户ID
+    //根据用户名字获取该用户
     @Override
-    public String getIdByUserName(String name) {
-        String userId = loginDAO.getIdByUserName(name);
+    public User getUserByName(String name) {
+        User user = loginDAO.getUserByName(name);
 
-        return userId;
+        return user;
+    }
+    @Override
+    public String getIdByUserName(String name){
+
+        return loginDAO.getIdByUserName(name);
     }
 }

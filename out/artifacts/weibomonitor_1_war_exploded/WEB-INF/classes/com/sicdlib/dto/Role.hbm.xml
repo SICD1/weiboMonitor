@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.sicdlib.dto">
+	<class name="Role" table="tb_role">
+		<id name="r_id" type="java.lang.String" column="r_id">
+			<generator class="uuid"/>
+		</id>
+		<property name="r_name"   type="java.lang.String"  column="r_name" />
+
+	</class>
+</hibernate-mapping>
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.sicdlib.dto">
+	<class name="Menu" table="tb_menu">
+		<id name="m_id" column="m_id">
+			<generator class="uuid"/>
+		</id>
+		<property name="m_name" column="m_name" type="java.lang.String" />
+		<property name="m_icon" column="m_icon" type="java.lang.String" />
+		<property name="m_url" column="m_url" type="java.lang.String" />
+		<property name="parent_id" column="parent_id" type="java.lang.String" />
+	</class>
+</hibernate-mapping>
+

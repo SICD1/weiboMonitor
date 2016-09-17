@@ -1,5 +1,6 @@
 package com.sicdlib.dao;
 
+import com.sicdlib.dto.Menu;
 import com.sicdlib.dto.User;
 import org.hibernate.mapping.Map;
 
@@ -10,6 +11,7 @@ import java.util.List;
  */
 public interface ILoginDAO {
     User getUserByName(String name);
-    List<Map> getMenu(String userId);
+    List<Menu> getMenu(String userId);
     String getIdByUserName(String name);
+
 }

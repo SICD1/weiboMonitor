@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.sicdlib.dto">
+	<class name="User" table="tb_user">
+		<id name="u_id" type="java.lang.String" column="u_id">
+			<generator class="uuid"/>
+		</id>
+		<property name="u_name" type="java.lang.String" column="u_name"/>
+		<property name="u_pwd" type="java.lang.String" column="u_pwd"/>
+		<property name="u_telephone" type="java.lang.String" column="u_telephone"/>
+		<property name="u_email" type="java.lang.String" column="u_email"/>
+		<property name="u_sex" type="int" column="u_sex"/>
+		<property name="group_id" type="java.lang.String" column="group_id" />
+	</class>
+</hibernate-mapping>
+
