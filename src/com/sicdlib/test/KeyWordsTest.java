@@ -12,7 +12,7 @@
 //
 //import com.sicdlib.entity.Corpus_Essays;
 //import com.sicdlib.entity.EssaySimilarityDegree;
-//import com.sicdlib.entity.KeyWords;
+//import com.sicdlib.entity.KeyWordsDAO;
 //import com.sicdlib.entity.SentenceCluster;
 //import com.sicdlib.entity.Weibo;
 //import com.sicdlib.service.Corpus_EssaysService;
@@ -62,8 +62,8 @@
 //		//今天与昨天
 //		System.out.println(df.format(date)+":"+df.format(date.getTime()-1*24*60*60*1000));
 //
-////		List<KeyWords> keywords = keyService.getTopKeyWords(10,"1",df.format(date));
-//		List<KeyWords> keywords = keyService.getTopKeyWords(10,"1","2016-7-24");
+////		List<KeyWordsDAO> keywords = keyService.getTopKeyWords(10,"1",df.format(date));
+//		List<KeyWordsDAO> keywords = keyService.getTopKeyWords(10,"1","2016-7-24");
 //		System.out.println(keywords.get(0).getKw_name());
 //	}*/
 //
@@ -71,7 +71,7 @@
 //	public void TestProvinceKeyWords(){
 //		Date date = new Date();
 //		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-//		List<KeyWords> keywords = keyService.getTopKeyWords(10,"陕西",df.format(date));
+//		List<KeyWordsDAO> keywords = keyService.getTopKeyWords(10,"陕西",df.format(date));
 //		System.out.println(keywords.size());
 //	}
 //

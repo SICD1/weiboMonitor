@@ -33,7 +33,7 @@ public class RegisterService implements IRegisterService {
     @Override
     public boolean registerNormalUser(User user) {
         Group group = getNormalGroup();
-        user.setUserGroup(group);
+        //user.setUserGroup(group);
 
         boolean result = registerDAO.insertUser(user);
 
@@ -56,8 +56,8 @@ public class RegisterService implements IRegisterService {
         Role role = roleDAO.getRoleByName(roleName);
 
         Group group = new Group();
-        group.setParent_id("0");
-        group.setRole(role);
+        //group.setParent_id("0");
+        //group.setRole(role);
         group.setG_name(Constant.GROUP_NORMAL_USER);
 
         return group;

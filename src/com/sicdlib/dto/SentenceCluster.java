@@ -2,14 +2,12 @@ package com.sicdlib.dto;
 
 //句子（簇）信息
 public class SentenceCluster {
-
 	private Integer orderID;		//句子顺序
 	private String sentence;		//句子内容
 	private Integer senLength;		//句子分词长度
 	private String keywords;		//包含的关键词
 	private Integer kwordsLength;	//包含的关键词个数
 	private Float senIMPDegree;		//包含句子(簇)权重
-	
 	public Float getSenIMPDegree() {
 		return senIMPDegree;
 	}

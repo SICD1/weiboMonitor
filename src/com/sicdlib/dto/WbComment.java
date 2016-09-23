@@ -4,19 +4,23 @@ import java.util.List;
 
 /**
  * 微博评论表
- * @author xxy
+ * @author
  *
  */
 public class WbComment {
-	
 	private Integer wbc_id;
 	private String wbc_u_id;		//微博用户ID
+	private String wbc_b_id;        //微博ID
 	private String wbc_content;		//微博评论表内容
 	private String wbc_zanNum;		//微博评论点赞量
 	private String wbc_createdAt;	//微博评论创建时间
-	
 	private Weibo weibo;			//一个评论属于一条微博
-	
+	public String getWbc_b_id() {
+		return wbc_b_id;
+	}
+	public void setWbc_b_id(String wbc_b_id) {
+		this.wbc_b_id = wbc_b_id;
+	}
 	public Weibo getWeibo() {
 		return weibo;
 	}

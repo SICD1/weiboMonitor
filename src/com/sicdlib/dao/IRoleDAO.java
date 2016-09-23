@@ -7,5 +7,5 @@ import com.sicdlib.dto.Role;
  */
 public interface IRoleDAO {
     Role getRoleByName(String name);
-    Role getRoleByUserID(String id);
+    Role getRoleByUserID(int id);
 }

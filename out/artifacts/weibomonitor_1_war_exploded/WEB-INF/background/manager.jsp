@@ -33,7 +33,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!-- Left column -->
     <div class="templatemo-flex-row">
       <div class="templatemo-sidebar">
-        <jsp:include page="/jsp/back_static/left.jsp"/>
+        <%--<jsp:include page="/jsp/back_static/left.jsp"/>--%>
+        <jsp:include page="/jsp/statics/left.jsp"/>
       </div>
       <!-- Main content --> 
       <div class="templatemo-content col-1 light-gray-bg">

@@ -119,7 +119,6 @@ function modInfo_checkUser(){
                   </div>
                 </div>                
               </div>
-              
        </div>
   </body>
 </html>

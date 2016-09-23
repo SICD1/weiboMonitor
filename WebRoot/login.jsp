@@ -79,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
 		              	<input name="u_name" id="u_name" type="text" value="<%=u_name%>" class="form-control" placeholder="username">           
-		          	</div>	
+		          	</div>
 	        	</div>
 	        	<div class="form-group">
 	        		<div class="input-group">
@@ -128,13 +128,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				type:'post',
 				url:'login?u_name='+u_name+'&u_pwd='+u_pwd+'&isRemPwd='+isRemPwd,
 				success:function(msg) {
-					/*var json = eval(msg);
-					$.each(json, function (index, item) {
-						alert(item.m_id);
-					});*/
-					//alert(msg);
 					if('success' == msg ){
-						location.href="<%=basePath%>index";
+						location.href="<%=basePath%>urlIndex";
 					}else if('failture' == msg){
 						$("#prompt").html("用户名或密码错误!");
 					}

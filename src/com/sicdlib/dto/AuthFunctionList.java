@@ -7,6 +7,16 @@ public class AuthFunctionList {
 	private String afl_code;			//操作编码
 	private String afl_filterURLprefix;	//拦截URL前缀
 	private String afl_parentID;		//父操作ID
+	private Authority_AuthFunctionList authority_AuthFunctionList;
+
+	public Authority_AuthFunctionList getAuthority_AuthFunctionList() {
+		return authority_AuthFunctionList;
+	}
+
+	public void setAuthority_AuthFunctionList(Authority_AuthFunctionList authority_AuthFunctionList) {
+		this.authority_AuthFunctionList = authority_AuthFunctionList;
+	}
+
 	//多个功能操作列表属于一个权限与权限功能列表集合
 	//private Authority_AuthFunctionList authority_AuthFunctionList;
 	public Integer getAfl_id() {

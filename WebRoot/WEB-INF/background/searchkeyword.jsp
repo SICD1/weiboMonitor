@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*"
-	import="com.sicdlib.entity.KeyWords" pageEncoding="UTF-8"%>
+	import="com.sicdlib.dto.KeyWords" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 String path = request.getContextPath();
@@ -79,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<td>${k.kw_name}</td>
 										<td>${k.kw_hotDegree}</td>
 										<td>${k.kw_province}</td>
-										<td>${k.kw_Date}</td>
+										<td>${k.kw_date}</td>
 										<td><a href="javascript:void(0)"
 											onclick="show('light${status.index+1}')">edit</a> <a
 											href="<%=path%>/background/deleteKeyWords?id=${k.kw_id}">delete</a></td>
@@ -111,8 +111,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 														name="kw_province" type="text" value="${k.kw_province}"
 														onblur="return checkUser()" class="form-control"
 														style="margin-top: 10px;width:220px;margin-left:20px"
-														placeholder="关键省份"> <input id="kw_Date"
-														name="kw_Date" type="text" value="${k.kw_Date}"
+														placeholder="关键省份"> <input id="kw_date"
+														name="kw_date" type="text" value="${k.kw_date}"
 														onblur="return checkUser()" class="form-control"
 														style="margin-top: 10px;width:220px;margin-left:20px"
 														placeholder="关键日期">

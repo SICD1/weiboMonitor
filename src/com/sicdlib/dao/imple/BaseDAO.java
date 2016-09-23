@@ -11,17 +11,26 @@ import java.util.Map;
 import javax.persistence.Table;
 
 import com.sicdlib.dao.IBaseDAO;
+import com.sicdlib.dto.Weibo;
+import edu.xjtsoft.base.orm.SimpleHibernateDao;
+import edu.xjtsoft.base.orm.support.MatchType;
+import edu.xjtsoft.base.orm.support.Page;
+import edu.xjtsoft.base.orm.support.PropertyFilter;
+import edu.xjtsoft.base.util.ReflectionUtil;
+import org.apache.commons.lang.StringUtils;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import org.hibernate.criterion.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository("baseDAO")
 @Transactional
-public class BaseDAO<T> implements IBaseDAO<T> {
+public class BaseDAO<T>  implements IBaseDAO<T>  {
     @Autowired
     SessionFactory sessionFactory;
 
@@ -99,9 +108,17 @@ public class BaseDAO<T> implements IBaseDAO<T> {
 
     @SuppressWarnings("unchecked")
     @Override
-    public List<T> find(String hql) {
+    public List<T> find(Page<T> page, String hql, Object[] values) {
         // TODO Auto-generated method stub
         Query query = getCurrentSession().createQuery(hql);
+        return query.list();
+    }
+
+    @Override
+    public List<T> find(String hql, int maxNum) {
+        Query query = getCurrentSession().createQuery(hql);
+        query.setMaxResults(maxNum);
+
         return query.list();
     }
 
@@ -115,6 +132,13 @@ public class BaseDAO<T> implements IBaseDAO<T> {
                 query.setParameter(key, params.get(key));
             }
         }
+        return query.list();
+    }
+
+    @Override
+    public List<T> find(String hql) {
+        Query query = getCurrentSession().createQuery(hql);
+        System.out.print("..............:"+query.list().size());
         return query.list();
     }
 

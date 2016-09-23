@@ -51,7 +51,7 @@ public class LoginDAO implements ILoginDAO {
     }
 
     @Override
-    public String getIdByUserName(String name) {
+    public int getIdByUserName(String name) {
 
         String hql = "from User user where user.u_name = '" + name + "'";
         User user= (User) baseDAO.get(hql);

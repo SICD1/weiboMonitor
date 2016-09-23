@@ -47,7 +47,7 @@ session.setAttribute("pageNo", 1);
 				           <h2 class="margin-bottom-10" style="font-family:Arial,Helvetica,sans-serif,SimSun;width:94%;float:left;">关键热词：<b>${keyword.kw_name}</b></h2>
 				           <h1 style="display:inline;background-color: #5F6262;height:20px;"><a style="color:#FFFFFF; font-size:30px; font-family: 'SimHei'" onclick="history.go(-1);">返回</a></h1>
 				           <p class="margin-bottom-0">关键热词热度：${keyword.kw_hotDegree}&nbsp&nbsp&nbsp 
-				           		相关微博数：${weiboSize}条&nbsp&nbsp&nbsp 关键热词时间：${keyword.kw_Date}</p>
+				           		相关微博数：${weiboSize}条&nbsp&nbsp&nbsp 关键热词时间：${keyword.kw_date}</p>
 			        </div>
                 </div>
         </div>

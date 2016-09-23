@@ -2,9 +2,7 @@ package com.sicdlib.dao.imple;
 
 import com.sicdlib.dao.IBaseDAO;
 import com.sicdlib.dao.IRoleDAO;
-import com.sicdlib.dto.Group;
 import com.sicdlib.dto.Role;
-import com.sicdlib.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -24,7 +22,7 @@ public class RoleDAO implements IRoleDAO{
     }
 
     @Override
-    public Role getRoleByUserID(String id) {
+    public Role getRoleByUserID(int id) {
         String hql = "SELECT r\n" +
                 "FROM User u, Group g, Role r\n" +
                 "WHERE u.group_id = g.g_id and g.role_id = r.r_id and u.u_id = '"+ id + "'";

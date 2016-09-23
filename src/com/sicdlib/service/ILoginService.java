@@ -12,9 +12,10 @@ public interface ILoginService {
     User validateLogin(String name, String password);
 
     //根据用户ID获取该用户拥有权限的菜单
-    public List<Menu> getMenu(String userId);
+    public List<Menu> getMenu(int userId);
 
     //根据用户名字获取该用户
     public User getUserByName(String name);
-    public String getIdByUserName(String name);
+    public int getIdByUserName(String name);
+
 }

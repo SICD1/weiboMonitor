@@ -44,7 +44,7 @@ public class LoginService implements ILoginService{
 
     //根据用户ID获取该用户拥有权限的菜单数据
     @Override
-    public List<Menu> getMenu(String userId) {
+    public List<Menu> getMenu(int userId) {
         Role role = roleDAO.getRoleByUserID(userId);
         String roleId = role.getR_id();
         if(roleId == null) {
@@ -63,7 +63,7 @@ public class LoginService implements ILoginService{
         return user;
     }
     @Override
-    public String getIdByUserName(String name){
+    public int getIdByUserName(String name){
 
         return loginDAO.getIdByUserName(name);
     }
