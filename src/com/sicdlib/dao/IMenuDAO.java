@@ -9,4 +9,7 @@ import java.util.List;
  */
 public interface IMenuDAO {
     List<Menu> getMenuByuserName(String name);
+
+    //根据Menu菜单id查询
+    List<Menu> getMenuByMenuId(String m_id);
 }

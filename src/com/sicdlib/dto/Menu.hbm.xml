@@ -12,6 +12,9 @@
 		<property name="m_icon" column="m_icon" type="java.lang.String" />
 		<property name="m_url" column="m_url" type="java.lang.String" />
 		<property name="parent_id" column="parent_id" type="java.lang.String" />
+
+		<!-- <property name="parent_id" column="parent_id" type="com.sicdlib.dto.Menu" /> -->
+
 	</class>
 </hibernate-mapping>
 
