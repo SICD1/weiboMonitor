@@ -3,7 +3,6 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-
 session.setAttribute("pageNo", 1);
 %>
 <!DOCTYPE html>

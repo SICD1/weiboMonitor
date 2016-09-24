@@ -9,9 +9,9 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 @JsonIgnoreProperties(value="weibos")
 public class KeyWords {
 
-	private Integer kw_id;
+	private String kw_id;
 	private String kw_name;			//关键词名称
-	private Integer kw_hotDegree;	//关键词热度
+	private String kw_hotDegree;	//关键词热度
 	private String kw_province;		//关键词省份（当省份为“1”时，代表全部省份）
 	private String kw_date;			//关键词时间
 	private Set<Weibo> weibos = new HashSet<Weibo>();		//一个关键词微博列表
@@ -22,10 +22,10 @@ public class KeyWords {
 	public void setWeibos(Set<Weibo> weibos) {
 		this.weibos = weibos;
 	}
-	public Integer getKw_id() {
+	public String getKw_id() {
 		return kw_id;
 	}
-	public void setKw_id(Integer kw_id) {
+	public void setKw_id(String kw_id) {
 		this.kw_id = kw_id;
 	}
 	public String getKw_name() {
@@ -33,11 +33,11 @@ public class KeyWords {
 	}
 	public void setKw_name(String kw_name) {
 		this.kw_name = kw_name;
-	}	
-	public Integer getKw_hotDegree() {
+	}
+	public String getKw_hotDegree() {
 		return kw_hotDegree;
 	}
-	public void setKw_hotDegree(Integer kw_hotDegree) {
+	public void setKw_hotDegree(String kw_hotDegree) {
 		this.kw_hotDegree = kw_hotDegree;
 	}
 	public String getKw_province() {

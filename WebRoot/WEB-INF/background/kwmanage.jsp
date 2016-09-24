@@ -142,7 +142,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="templatemo-content-widget no-padding">
 					<div class="panel panel-default table-responsive">
 						<div class="templatemo-content-widget white-bg">
-							<form action="background/keywordsSearchByPage" method="post">
+							<form action="background/keyWordsSearchByPage" method="post">
 								<input type="hidden" name="pageNo" value="1"/>
 								<span><input name="keywords_search" type="text"
 									style="border-radius:0px;height:38px;width:60%;float:left;"
@@ -168,7 +168,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<td colspan="2">manage</td>
 								</tr>
 							</thead>
-							</tbody>
 							<tbody>
 								<c:forEach var="k" items="${page.result}" varStatus="status">
 									<tr>
@@ -220,36 +219,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												</div>
 											</div>
 										</form>
-									</div>
 								</c:forEach>
+							</tbody>
 						</table>
 
-					</div>
-				</div>
-				<!-- Second row ends -->
 				<div class="pagination-wrap">
 					<ul class="pagination">
 						<li><a
-							href="http://localhost:8080/weibomonitor/background/kwmanage?pageNo=1">1</a></li>
+							href="background/kwmanage/1">1</a></li>
 						<li><a
-							href="http://localhost:8080/weibomonitor/background/kwmanage?pageNo=2">2</a></li>
+							href="background/kwmanage/2">2</a></li>
 						<li><a
-							href="http://localhost:8080/weibomonitor/background/kwmanage?pageNo=3">3</a></li>
+							href="background/kwmanage/3">3</a></li>
 						<li><a
-							href="http://localhost:8080/weibomonitor/background/kwmanage?pageNo=4">4</a></li>
+							href="background/kwmanage/4">4</a></li>
 						<li><a
-							href="<%=basePath%>/background/kwmanage?pageNo=5">5</a></li>
-						<li><a href="<%=basePath%>/background/kwmanage?pageNo=${page.nextPage}" aria-label="Next"> <span
+							href="<%=basePath%>background/kwmanage/5">5</a></li>
+						<li><a href="<%=basePath%>background/kwmanage/${page.nextPage}" aria-label="Next"> <span
 								aria-hidden="true"><i class="fa fa-play"></i></span>
 						</a></li>
 					</ul>
-				</div>
+				  </div>
 				<div style="padding:50px;width:100%;height:10%;float:right;">
 					<jsp:include page="/jsp/statics/foot.jsp"></jsp:include>
 				</div>
 			</div>
 		</div>
-	</div>
+		</div>
 	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      <!-- jQuery -->
 	<script type="text/javascript" src="js/templatemo-script.js"></script>      <!-- Templatemo Script -->
 	<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>

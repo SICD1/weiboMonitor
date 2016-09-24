@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <li><a href="<%=basePath%>search"><i class="fa fa-users fa-fw"></i>搜 索</a></li>
                 <li><a href="<%=basePath%>analyser"><i class="fa fa-users fa-fw"></i>微分析</a></li>
               </ul> --%>
-                <div class="navbar-header" style="padding:10px;font-size: 20px;">
+                <div class="navbar-header" style="padding:5px;font-size: 22px;">
                     <c:forEach items="${menuList}" var="menu"  >
                         <%--<c:if test="${menu.parent_id} == 0">--%>
                             <%--<a>menu.name</a>--%>
@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <%--</c:forEach>--%>
 
                         <%--</c:if>--%>
-                        <div>
+                        <div style="height: 38px;">
                         <a style="color:white;" href="<%=basePath%>${menu.m_url}"  class="active"><i class="fa fa-${menu.m_icon} fa-fw"></i><b id="font">${menu.m_name}</b></a>
                         </div>
                                 <%--<ul class="dropdown-menu">--%>

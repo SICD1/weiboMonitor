@@ -82,7 +82,10 @@ footer { padding: 15px; }
 
 /* 2. Left Column
 -----------------------------*/
-.templatemo-sidebar { width: 300px; }
+.templatemo-sidebar {
+	width: 300px;
+    background-color: black;
+}
 .square {
 	width: 25px;
 	height: 25px;

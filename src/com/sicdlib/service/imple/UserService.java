@@ -27,6 +27,7 @@ public class UserService extends DefaultEntityManager<User> {
         Page<User> page=new Page<User>();
         page.setPageNo(pageNo);
         Page<User> users=getEntityDao().find(page,hql,values);
+        System.out.println(users.getResult().size());
         return users;
     }
 }

@@ -18,10 +18,7 @@ import edu.xjtsoft.base.orm.support.Page;
 import edu.xjtsoft.base.orm.support.PropertyFilter;
 import edu.xjtsoft.base.util.ReflectionUtil;
 import org.apache.commons.lang.StringUtils;
-import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.*;
 
 import org.hibernate.criterion.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -110,7 +107,7 @@ public class BaseDAO<T>  implements IBaseDAO<T>  {
     @Override
     public List<T> find(Page<T> page, String hql, Object[] values) {
         // TODO Auto-generated method stub
-        Query query = getCurrentSession().createQuery(hql);
+        Query query = getCurrentSession().createSQLQuery(hql);
         return query.list();
     }
 
@@ -130,6 +127,17 @@ public class BaseDAO<T>  implements IBaseDAO<T>  {
         if (params != null && !params.isEmpty()) {
             for (String key : params.keySet()) {
                 query.setParameter(key, params.get(key));
+            }
+        }
+        return query.list();
+    }
+
+    @Override
+    public List<T> find(String hql, Object[] params) {
+        Query query = getCurrentSession().createQuery(hql);
+        if (params != null && params.length > 0) {
+            for (int i = 0; i < params.length; i++) {
+                query.setParameter(i, params[i]);
             }
         }
         return query.list();

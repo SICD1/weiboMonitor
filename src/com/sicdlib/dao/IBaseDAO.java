@@ -113,6 +113,8 @@ public interface IBaseDAO<T> {
      */
     List<T> find(String hql);
 
+    List<T> find(String hql, Object[] params);
+
     List<T> find(String hql, int from, int size);
 
     /**

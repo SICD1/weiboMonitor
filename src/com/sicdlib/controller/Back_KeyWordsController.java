@@ -5,6 +5,7 @@ import com.sicdlib.service.imple.KeyWordsService;
 import com.sicdlib.service.imple.WeiboService;
 import edu.xjtsoft.base.orm.support.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,7 +30,7 @@ public class Back_KeyWordsController {
         @Autowired(required=true)
         WeiboService weiboService;
 
-        @RequestMapping()
+        @RequestMapping("kwmanage")
         public String kwmanage(){
             System.out.println("load to kwmanage ......");
             return "/WEB-INF/background/kwmanage";
@@ -77,9 +78,9 @@ public class Back_KeyWordsController {
             return "/WEB-INF/background/kwmanage";
         }
 
-        @RequestMapping("keywordsSearchByPage")
-        public String keywordsSearchByPage(HttpServletRequest req, Model mode) throws IOException {
-            System.out.println("load to keywordsSearchByPage ......");
+        @RequestMapping("keyWordsSearchByPage")
+        public String keyWordsSearchByPage(HttpServletRequest req, Model mode) throws IOException {
+            System.out.println("load to keyWordsSearchByPage ......");
 
             //2乱码
             String keyWordsSearch =(req.getParameter("keywords_search"));

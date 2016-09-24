@@ -177,10 +177,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                           <td>
                               ${c.u_sex}
                           </td>
-                          <%-- <td>
-                               <c:if test="${c.u_sex==true }">女</c:if>
-                               <c:if test="${c.u_sex==false }">男</c:if>
-                           </td>--%>
+                           <%--<td>--%>
+                               <%--<c:if test="${c.u_sex==true }">女</c:if>--%>
+                               <%--<c:if test="${c.u_sex==false }">男</c:if>--%>
+                           <%--</td>--%>
                           <td><a href="javascript:void(0)" onclick="show('light${status.index+1}')" class="templatemo-edit-btn">edit</a></td>
                           <td><a href="<%=path%>/background/deleteUser?id=${c.u_id}" class="templatemo-edit-btn">delete</a></td>
                       </tr>
@@ -217,40 +217,55 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                           <input id="u_email" name="u_email" type="text" value="${c.u_email}" onblur="return checkUser()" class="form-control" placeholder="email">
                                       </div>
                                   </div>
-                                  <div class="margin-right-15 templatemo-inline-block">
+                                  <%--<div class="margin-right-15 templatemo-inline-block">
                                       <input id="female${status.index+1}" type="radio" name="u_sex" value="true" checked="">
                                       <label for="female${status.index+1}" class="font-weight-400"><span></span>女</label>
                                   </div>
                                   <div class="margin-right-15 templatemo-inline-block">
                                       <input id="male${status.index+1}" type="radio" name="u_sex" value="false" checked="">
                                       <label for="male${status.index+1}" class="font-weight-400"><span></span>男</label>
-                                  </div>
+                                  </div>--%>
                                   <button type="submit" class="templatemo-blue-button width-100">修 改</button>
                               </div>
                           </div>
                       </form>
-                  </c:forEach>
-              </tbody>
-            <div id="fade" class="black_overlay" style=""></div>
+                   </c:forEach>
+                  </tbody>
+    </table>
+
+          <div class="pagination-wrap">
+              <ul class="pagination">
+                  <!-- 前一页 -->
+                  <%-- <a href="background/stopwords/${page.prePage}"
+                      aria-label="Next"> <span aria-hidden="true"><i
+                          class="fa fa-play"></i>
+                  </span> </a> --%>
+                  <li><a href="background/managesuperusers/1">1</a>
+                  </li>
+                  <li><a href="background/managesuperusers/2">2</a>
+                  </li>
+                  <li><a href="background/managesuperusers/3">3
+                      <span class="sr-only">(current)</span>
+                  </a>
+                  </li>
+                  <li><a href="background/managesuperusers/4">4</a>
+                  </li>
+                  <li><a href="background/managesuperusers/5">5</a>
+                  </li>
+                  <li><a href="background/managesuperusers/${page.nextPage}"
+                         aria-label="Next"> <span aria-hidden="true"><i
+                          class="fa fa-play"></i>
+											</span> </a></li>
+              </ul>
+          </div>
             </div>
+          </div>
+            <div style="padding:50px;width:100%;height:10%;float:right;">
+             <jsp:include page="/jsp/statics/foot.jsp"/>
+            </div>
+        </div>
+        </div>
       </div>
-    </div>
-          </table>
-       <div class="pagination-wrap">
-            <ul class="pagination">
-                <li><a href="background/managesuperusers?pageNo=1">1</a></li>
-                <li><a href="background/managesuperusers?pageNo=2">2</a></li>
-                <li><a href="background/managesuperusers?pageNo=3">3 <span class="sr-only">(current)</span></a></li>
-                <li><a href="background/managesuperusers?pageNo=4">4</a></li>
-                <li><a href="background/managesuperusers?pageNo=5">5</a></li>
-                <li>
-                    <a href="background/managesuperusers?pageNo=${page.nextPage+1}" aria-label="Next">
-                        <span aria-hidden="true"><i class="fa fa-play"></i></span>
-                    </a>
-                </li>
-            </ul>
-          </div>          
-         <jsp:include page="/jsp/statics/foot.jsp"/>
     <!-- JS -->
     <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      <!-- jQuery -->
     <script type="text/javascript" src="js/templatemo-script.js"></script>      <!-- Templatemo Script -->
@@ -266,7 +281,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         $('img.content-bg-img').hide();        
       });
     </script>
-        </div>
         </div>
   </body>
 </html>

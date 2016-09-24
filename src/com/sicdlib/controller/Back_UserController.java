@@ -123,7 +123,7 @@ public class Back_UserController {
     @RequestMapping("editUser")
     public String editUser(Integer pageNo, User user, Model model){
         userService.saveOrUpdate(user);
-        //System.out.print("......"+user.getU_name());
+        System.out.print("......"+user.getU_name());
         Page<User> page = new Page<User>();
         page.setPageNo(pageNo);
         page.setPageSize(10);

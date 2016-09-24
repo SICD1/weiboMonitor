@@ -64,18 +64,18 @@ float:right;}
         </div>
         <div class="templatemo-content-container" style="padding:0">
 		<script type="text/javascript">
-		/*	 $(document).ready(function(e){
-				$(document).on('mouseover',function(e){
-					$(".words").css("font-size","40px");
-				});
-			});*/
+//			 $(document).ready(function(e){
+//				$(document).on('mouseover',function(e){
+//					$(".words").css("font-size","40px");
+//				});
+//			});
 			 function mouseover1(){
-				 $("#word1").css("font-size","48px");
+				 //$("#word1").css("font-size","48px");
 			 }
 			 function mouseout1(){
-					$("#word1").css("font-size","30px");
-			} 
-			
+					//$("#word1").css("font-size","30px");
+			}
+
 			function getRandomNum1(){
 				$.ajax({
 					type : 'post',

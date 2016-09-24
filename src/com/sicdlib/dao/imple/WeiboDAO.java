@@ -18,7 +18,7 @@ public class WeiboDAO implements IWeiboDAO {
     public Page<Weibo> getWeibosByKeywords(int pageNo, String kw_name, String kw_province, String kw_DateBegin, String kw_DateEnd) {
         Page<Weibo> page = new Page<Weibo>(10);
         page.setPageNo(pageNo);
-        String hql = "select w from KeyWordsDAO k, Weibo w where w.keyWords.kw_id = k.kw_id and k.kw_name = ? and k.kw_province like ? and k.kw_Date >= ? and k.kw_Date <= ?";
+        String hql = "from KeyWords k, Weibo w where w.keyWords.kw_id = k.kw_id and k.kw_name = ? and k.kw_province like ? and k.kw_date >= ? and k.kw_date <= ?";
         Object[] values = new Object[4];
         values[0] = kw_name;
         values[1] = kw_province;

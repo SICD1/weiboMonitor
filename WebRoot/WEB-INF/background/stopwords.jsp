@@ -69,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			//为全局变量赋值
 
 			alert(<%=user_name%> +":"+ u_name);
-			if(<%=user_name%> !=  u_name) {
+			if(<%=user_name%> != u_name) {
 				if(u_name==""||u_name.length<6){
 					$("#u_name_prompt").html("请输入6位数密码");
 					$("#u_name_prompt").css("display","");
@@ -91,7 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					return true;
 				}
 			}
-		}
+		};
 	</script>
 <script   type="text/javascript">
 function show(tag){
@@ -255,5 +255,6 @@ function hide(tag){
         $('img.content-bg-img').hide();        
       });
     </script>
+	</div>
 </body>
 </html>

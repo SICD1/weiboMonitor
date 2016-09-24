@@ -143,7 +143,7 @@ public class RegisterController {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         topkeywords = keyWordsService.getTopKeyWords(12,"1","2016-07-24");
         mode.addAttribute("topkeywords", topkeywords);
-        return "/WEB-INF/index";
+        return "/WEB-INF/urlIndex";
     }
 
 

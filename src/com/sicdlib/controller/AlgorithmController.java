@@ -4,6 +4,7 @@ package com.sicdlib.controller;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.sicdlib.dao.imple.WeiboDAO;
 import com.sicdlib.dto.*;
+import com.sicdlib.service.IKeyWordsService;
 import com.sicdlib.service.imple.KeyWordsService;
 import com.sicdlib.service.imple.WeiboService;
 import com.sicdlib.util.CNSegment.CNSegment;
@@ -15,6 +16,7 @@ import org.apache.struts.util.TokenProcessor;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,11 +38,12 @@ import java.util.*;
 @Controller
 public class AlgorithmController {
 
-    @Autowired
+    @Autowired()
     KeyWordsService keyWordsService;
 
     @Autowired
     WeiboService weiboService;
+
     List<KeyWords> topkeywords = null;
 
     @RequestMapping("/index")
@@ -48,7 +51,6 @@ public class AlgorithmController {
         System.out.println("已经加载到index...");
         Date date = new Date();
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-
         topkeywords = keyWordsService.getTopKeyWords(12,"1","2016-07-24");
         mode.addAttribute("topkeywords", topkeywords);
         return "/WEB-INF/index";
@@ -357,10 +359,9 @@ public class AlgorithmController {
 
     @RequestMapping("/weibolists")
     public String weibolists(HttpServletRequest req, Model mode){
-
-        Integer kwid = Integer.parseInt(req.getParameter("kwid"));
+        String  kwid = req.getParameter("kwid");
         System.out.println(kwid);
-        KeyWords keyword =keyWordsService.load(kwid);
+        KeyWords keyword = (KeyWords) keyWordsService.load(kwid);
         PropertyFilter filters = new PropertyFilter("keyWords", keyword);
         List<Weibo> weibos = weiboService.search(filters);
         mode.addAttribute("keyword", keyword);

@@ -5,11 +5,11 @@
 
 <hibernate-mapping package="com.sicdlib.dto">
 	<class name="KeyWords" table="tb_keywords">
-		<id name="kw_id" type="java.lang.Integer" column="kw_id">
+		<id name="kw_id" type="java.lang.String" column="kw_id">
 			<generator class="uuid"/>
 		</id>
 		<property name="kw_name" type="java.lang.String" column="kw_name"/>
-		<property name="kw_hotDegree" type="java.lang.Integer" column="kw_hot_degree"  />
+		<property name="kw_hotDegree" type="java.lang.String" column="kw_hot_degree"  />
 		<property name="kw_province" type="java.lang.String" column="kw_province"  />
 		<property name="kw_date" type="java.lang.String" column="kw_date" />
 		<set name="weibos" cascade="all" inverse="true" lazy="true">
