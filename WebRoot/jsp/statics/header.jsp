@@ -1,18 +1,20 @@
-<%@ page language="java" import="java.util.*" import="com.sicdlib.entity.User" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" import="com.sicdlib.dto.User" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 User user = (User)session.getAttribute("user");
+System.out.println(user);
 String user_name = "";
 String user_email = "";
 String user_telephone = "";
 boolean user_sex = true;
 if(user != null){
 	user_name = user.getU_name();
-	user_email = user.getU_mail();
-	user_telephone = user.getU_telphone();
-	user_sex = user.isU_sex();
+    System.out.print(user_name);
+	user_email = user.getU_email();
+	user_telephone = user.getU_telephone();
+	user_sex = (Boolean.parseBoolean(String.valueOf(user.getU_sex()))) ;
 }
 %>
 
@@ -112,12 +114,11 @@ function modInfo_checkUser(){
                     </a>
                   </div>
                   <div class="media-body">
-					<h2 class="media-heading text-uppercase"><%=user_name%></h2>
-					<a class="media-heading text-uppercase" href="user/logout">注 销</a>
+					<h1 class="media-heading text-uppercase"><%=user_name%></h1>
+					<a class="media-heading text-uppercase" href="<%=basePath%>login.jsp">注 销</a>
                   </div>
                 </div>                
               </div>
-              
        </div>
   </body>
 </html>

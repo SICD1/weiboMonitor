@@ -1,19 +1,20 @@
-<%@ page language="java" import="java.util.*" import="com.sicdlib.entity.KeyWords" pageEncoding="UTF-8"%>
-<%@ page language="java" import="java.util.*" import="com.sicdlib.entity.KeyWords" pageEncoding="UTF-8"%>
-<%@ page language="java" import="java.util.*" import="com.sicdlib.entity.KeyWords" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*,com.sicdlib.dto.KeyWords" pageEncoding="UTF-8"%>
+<%@ page import="com.sicdlib.dto.User" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-
-List<KeyWords> keywords = (List<KeyWords>) request.getAttribute("topkeywords");
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	List<KeyWords> keywords = (List<KeyWords>) request.getAttribute("topkeywords");
+	User user = (User) session.getAttribute("user");
+	String name = user.getU_name();
 %>
 
 <!DOCTYPE html>
 <html lang="en">
 
   <head>
-    <meta charset="utf-8">
+	  <link rel="stylesheet" type="text/css" href="out/artifacts/weibomonitor_1_war_exploded/css/bootstrap.min.css"/>
+	  <meta charset="utf-8">
     <title>微博舆情分析 - Home</title>
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -43,7 +44,7 @@ float:right;}
     padding-top:20%;
     margin-left:-6%;
    }
-   
+
 .filtr-item img:hover{ opacity:0.5;filter(alpha=100); background-color: black;}
 .words hover{ opacity:0.5;filter(alpha=100); background-color: black;}
 
@@ -55,23 +56,23 @@ float:right;}
   
     <!-- Left column -->
     <div class="templatemo-flex-row">
-      <jsp:include page="/jsp/statics/left.jsp"/> 
-      <!-- Main content --> 
+      <jsp:include page="/jsp/statics/left.jsp"/>
+      <!-- Main content -->
       <div class="templatemo-content col-1 light-gray-bg">
         <div class="templatemo-top-nav-container">
           <jsp:include page="/jsp/statics/header.jsp"/>
         </div>
         <div class="templatemo-content-container" style="padding:0">
 		<script type="text/javascript">
-			/* $(document).ready(function(e){
+		/*	 $(document).ready(function(e){
 				$(document).on('mouseover',function(e){
 					$(".words").css("font-size","40px");
 				});
-			}); */
-			function mouseover1(){
-					$("#word1").css("font-size","48px");
-			} 
-			function mouseout1(){
+			});*/
+			 function mouseover1(){
+				 $("#word1").css("font-size","48px");
+			 }
+			 function mouseout1(){
 					$("#word1").css("font-size","30px");
 			} 
 			
@@ -117,12 +118,12 @@ float:right;}
 					$(this).toggleClass('active').siblings().removeClass('active');
 				});
 			});
-			/* function myfun(){
+			/*function myfun(){
 				$("#sucaihuo_1").filterizr();
 				$("#sucaihuo_1").css("display","");
 				$("#sucaihuo_2").css("display","none");
 			}			
-			window.onload=myfun; */
+			window.onload=myfun;*/
 		</script>
 		<div id="init_keywords1" style="padding: 0px; position: relative; height: 453px;" class="sucaihuo">
 			<!-- 第一次 -->
@@ -134,7 +135,7 @@ float:right;}
 		                    <div id="word1" class="words">
 						　　　　<br>${tk.kw_name}
 						　　	</div>
-		                </a> 
+		                </a>
 		            </div>
 				</c:if>		           			
 			</c:forEach>
@@ -143,10 +144,10 @@ float:right;}
 				<ul class="nav">
 					<li id="next_btn" style="width:56px;" class="shuffle-btn" data-shuffle="">下一批</li>
 				</ul>   
-			</div> 
+			</div>
        </div>
-      <%--   
-		<div id="init_keywords2" style="display:none;padding: 0px; position: relative; height: 453px;" class="sucaihuo">
+
+	<%--	<div id="init_keywords2" style="display:none;padding: 0px; position: relative; height: 453px;" class="sucaihuo">
 			<!-- 第一次 -->
 			<c:forEach var="tk" items="${topkeywords}" varStatus="s">
 				<c:if test="${s.index >2&&s.index<12}">
@@ -163,18 +164,17 @@ float:right;}
 			<ul class="nav">
 				<li id="next_btn" onclick="getRandomNum()" class="shuffle-btn" data-shuffle="">下一批</li>
 			</ul>    
-       </div> --%>
-<script>
-
-/* $(function() {
+       </div>--%>
+<%--<script>
+	$(function() {
 	$('.sucaihuo').filterizr();
 
 	$('.nav li').on('click', function() {
 		$(this).toggleClass('active').siblings().removeClass('active');
 	});
-}); */
+});
 
-</script> 
+</script> --%>
        	<div style="padding:50px;width:100%;height:10%;float:right;">
          	<jsp:include page="/jsp/statics/foot.jsp"/> 
        	</div> 

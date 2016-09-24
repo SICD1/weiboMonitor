@@ -37,7 +37,7 @@ a {
 }
 
 a:active,a:hover {
-	outline: 0
+	outline: 0;
 }
 
 abbr[title] {
@@ -1361,7 +1361,7 @@ button,input,select,textarea {
 
 a {
 	color: #337ab7;
-	text-decoration: none
+	text-decoration: inherit
 }
 
 a:focus,a:hover {
@@ -1478,7 +1478,7 @@ hr {
 }
 
 .h1,h1 {
-	font-size: 36px
+	font-size: 20px
 }
 
 .h2,h2 {
@@ -4302,6 +4302,7 @@ select[multiple].input-group-sm>.form-control,select[multiple].input-group-sm>.i
 	position: relative;
 	min-height: 50px;
 	margin-bottom: 20px;
+	margin-top:5px;
 	border: 1px solid transparent
 }
 
@@ -5700,7 +5701,7 @@ a.list-group-item-danger.active,a.list-group-item-danger.active:focus,a.list-gro
 }
 
 .panel-body {
-	padding: 15px
+	padding: 11px
 }
 
 .panel-heading {

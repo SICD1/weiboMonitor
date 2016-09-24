@@ -6,7 +6,6 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
 <% 
 	String u_name = "";
 	String u_pwd = "";
@@ -80,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
 		              	<input name="u_name" id="u_name" type="text" value="<%=u_name%>" class="form-control" placeholder="username">           
-		          	</div>	
+		          	</div>
 	        	</div>
 	        	<div class="form-group">
 	        		<div class="input-group">
@@ -116,8 +115,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<div style="padding:20px;width:100%;height:10%;bottom:0;position:absolute;">
          	<jsp:include page="/jsp/statics/foot.jsp"/> 
-       	</div> 
-		
+       	</div>
 	</body>
 	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      <!-- jQuery -->
     <script type="text/javascript" src="js/templatemo-script.js"></script>      <!-- Templatemo Script -->  
@@ -129,22 +127,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			$.ajax({
 				type:'post',
 				url:'login?u_name='+u_name+'&u_pwd='+u_pwd+'&isRemPwd='+isRemPwd,
-				success:function(msg){
-					if('success' == msg){
-						$.ajax({
-							type:'post',
-							url:'user/ckeck?u_name='+u_name,
-							success:function(result){
-								if('success' == result){
-									//此处处理后台返回的list集合
-									//暂时未处理，根据页面需要，处理需要的list集合的值
-								}
-							}
-						});
-
-						location.href= "<%=basePath%>index";
-					}else if('failure' == msg){
-						$("#prompt").html("用户名或密码错误！");
+				success:function(msg) {
+					if('success' == msg ){
+						location.href="<%=basePath%>urlIndex";
+					}else if('failture' == msg){
+						$("#prompt").html("用户名或密码错误!");
 					}
 				}
 			});
