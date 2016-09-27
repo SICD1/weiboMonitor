@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.sicdlib.dto">
+	<class name="Weibo" table="tb_weibo">
+		<id name="wb_id" type="java.lang.Integer" column="wb_id">
+			<generator class="uuid"/>
+		</id>
+		<property name="wb_content" type="java.lang.String" column="wb_content"/>
+		<property name="wb_createdAt" type="java.lang.String" column="wb_createdat"/>
+		<property name="wb_forwardNum" type="java.lang.Integer" column="wb_forward_num"/>
+		<property name="wb_readNum" type="java.lang.Integer" column="wb_read_num"/>
+		<property name="wb_commentsNum" type="java.lang.Integer" column="wb_comments_num"/>
+		<property name="wb_likeNum" type="java.lang.Integer" column="wb_like_num" />
+		<property name="wb_fromDevice" type="java.lang.String" column="wb_from_device"/>
+		<property name="wb_originalLink" type="java.lang.String" column="wb_original_link" />
+
+		<many-to-one name="wbuser" column="wbu_id"/>
+		<many-to-one name="keyWords" column="kw_id"/>
+		<!-- 一条微博包含多个微博评论 -->
+		<set name="wbComments" cascade="all" inverse="true">
+			<key column="wbc_id"/>
+			<one-to-many class="WbComment"/>
+		</set>
+
+	</class>
+</hibernate-mapping>
+

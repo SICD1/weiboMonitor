@@ -41,12 +41,14 @@ public class MD5Util {
             }  
         }  
         return null;  
-    }  
-      
-    /**  
-     * 转换字节数组为十六进制字符串 
-     * @param     字节数组 
-     * @return    十六进制字符串 
+    }
+
+
+
+    /**
+     * 转换字节数组为十六进制字符串
+     * @param     字节数组
+     * @return    十六进制字符串
      */  
     private static String byteArrayToHexString(byte[] b){  
         StringBuffer resultSb = new StringBuffer();  

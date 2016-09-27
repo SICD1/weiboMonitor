@@ -1,6 +1,14 @@
 package com.sicdlib.dao;
 
+
+import edu.xjtsoft.base.orm.support.Page;
+
+import edu.xjtsoft.base.orm.support.PropertyFilter;
+import org.apache.commons.lang.StringUtils;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Order;
 
 import java.io.Serializable;
 import java.math.BigInteger;
@@ -74,10 +82,21 @@ public interface IBaseDAO<T> {
 
     /**
      * 查询，获取List
+     *
+     * @param page
      * @param hql
+     * @param values
      * @return
      */
-    List<T> find(String hql);
+    List<T> find(Page<T> page, String hql, Object[] values);
+
+    /**
+     * 返回maxNum个结果
+     * @param hql
+     * @param maxNum
+     * @return
+     */
+    List<T> find(String hql, int maxNum);
 
     /**
      * 查询，获取List
@@ -90,11 +109,13 @@ public interface IBaseDAO<T> {
     /**
      * 查询从第from开始，总共rows条记录
      * @param hql
-     * @param from
-     * @param rows
      * @return
      */
-    List<T> find(String hql, int from, int rows);
+    List<T> find(String hql);
+
+    List<T> find(String hql, Object[] params);
+
+    List<T> find(String hql, int from, int size);
 
     /**
      * 查询从第from开始，总共rows条记录， 带参数
@@ -180,4 +201,5 @@ public interface IBaseDAO<T> {
      * @return
      */
     BigInteger countSql(String sql, Map<String, Object> params);
+
 }

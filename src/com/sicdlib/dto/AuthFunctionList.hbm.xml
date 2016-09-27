@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.sicdlib.dto">
+	<class name="AuthFunctionList" table="tb_authFunctionList">
+		<id name="afl_id" type="java.lang.Integer" column="afl_id">
+			<generator class="uuid"/>
+		</id>
+		<property name="afl_name"   type="java.lang.String"  column="afl_name" />
+		<property name="afl_code"   type="java.lang.String"  column="afl_code" />
+		<property name="afl_filterURLprefix"   type="java.lang.String"  column="afl_filterURLprefix" />
+		<property name="afl_parentID"   type="java.lang.String"  column="afl_parentID" />
+<!--多个功能列表属于一个权限与功能列表中间表 -->
+		<many-to-one name="authority_AuthFunctionList" column="a_afl_id"/>
+	</class>
+</hibernate-mapping>
+

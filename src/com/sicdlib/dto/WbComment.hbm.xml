@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.sicdlib.dto">
+	<class name="WbComment" table="wb_comment">
+		<id name="wbc_id" type="java.lang.Integer" column="comment_id">
+			<generator class="uuid"/>
+		</id>
+		<property name="wbc_u_id" type="java.lang.String" column="comment_user_id"/>
+		<property name="wbc_b_id" type="java.lang.String" column="comment_blog_id"/>
+		<property name="wbc_zanNum" type="java.lang.String" column="comment_praise_num"/>
+		<property name="wbc_createdAt" type="java.lang.String" column="comment_time"/>
+		<property name="wbc_content" type="java.lang.String" column="comment_content"/>
+		<!--一条评论属于一条微博 -->
+			<many-to-one  name="weibo" column="wb_id"/>
+	</class>
+</hibernate-mapping>
+

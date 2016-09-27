@@ -6,18 +6,19 @@ import java.io.Serializable;
  * Created by maninit on 2016/9/7.
  */
 public class User implements Serializable{
-    private String u_id;
+    private int u_id;
     private String u_name;
     private String u_pwd;
     private String u_telephone;
     private String u_email;
     private int u_sex;
     private String group_id;
-    public String getU_id() {
+
+    public int getU_id() {
         return u_id;
     }
 
-    public void setU_id(String u_id) {
+    public void setU_id(int u_id) {
         this.u_id = u_id;
     }
 

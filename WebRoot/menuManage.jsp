@@ -20,9 +20,6 @@
     <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="js/jquery.ztree.core.js"></script>
     <script type="text/javascript" src="js/jquery.ztree.excheck.js"></script>
-    <%--<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">--%>
-    <%--<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>--%>
-    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <SCRIPT type="text/javascript">
         <!--
         var setting = {
@@ -43,9 +40,8 @@
         };
 
         var zNodes =[
-            <%--<c:forEach items="${menulist}" var="m">--%>
-                <%--{ id:${m.m_id}, pId:${m.parent_id}, name:"${m.m_name}", open:true},--%>
-            <%--</c:forEach>--%>
+            { id:1, pId:0, name:"普通用户", open:true},
+
            { id:11, pId:1, name:"今日热点",open:true},
             { id:111, pId:11, name:"展示", checked:true},
             { id:112, pId:11, name:"删除"},
@@ -202,36 +198,17 @@
 
         <div class="templatemo-content-widget white-bg">
             <div class="panel-heading border-radius-10" style="background-color:#39ADB4;border-radius: 8px;">
-                <h2 style="color:white">权限管理修改
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle"
-                                data-toggle="dropdown">
-                             用户选择<span class="caret"></span>
-                        </button>
-
-                        <ul class="dropdown-menu" role="menu">
-                            <c:forEach items="${roles}" var="r">
-                                <li><a href="${r.r_name}Manage">${r.r_name}</a></li>
-
-                            </c:forEach>
-                        </ul>
-                    </div>
-                </h2>
+                <h2 style="color:white">权限管理(用户类型：普通用户)</h2>
             </div>
 
-                123
-            <c:forEach items="${menulist}" var="m">
-                ${m.m_name}
 
-            </c:forEach>
                 <div class="content_wrap">
                     <div class="zTreeDemoBackground left">
                         <ul id="treeDemo" class="ztree"></ul>
                     </div>
                 </div>
-                <%--<input type="text" id="hid_checked_menu" name="hid_checked_menu"/>--%>
-                <input type="submit" onclick="getMenuId()"  value="确定修改"/>
+                <input type="text" id="hid_checked_menu" name="hid_checked_menu"/>
+                <input type="submit" onclick="getMenuId()"  value="提交"/>
 
 
         </div>

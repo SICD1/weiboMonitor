@@ -1,5 +1,8 @@
 package com.sicdlib.dto;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 菜单属性
  */
@@ -49,5 +52,4 @@ public class Menu {
     public void setParent_id(String parent_id) {
         this.parent_id = parent_id;
     }
-
 }
