@@ -43,9 +43,9 @@
         };
 
         var zNodes =[
-            <%--<c:forEach items="${menulist}" var="m">--%>
-                <%--{ id:${m.m_id}, pId:${m.parent_id}, name:"${m.m_name}", open:true},--%>
-            <%--</c:forEach>--%>
+            <c:forEach items="${menulist}" var="m">
+                { id:${m.m_id}, pId:${m.parent_id}, name:"${m.m_name}", open:true},
+            </c:forEach>
            { id:11, pId:1, name:"今日热点",open:true},
             { id:111, pId:11, name:"展示", checked:true},
             { id:112, pId:11, name:"删除"},
@@ -61,15 +61,15 @@
             { id:131, pId:13, name:"展示", checked:true},
             { id:132, pId:13, name:"删除"},
             { id:133, pId:13, name:"修改"},
-
-            { id:14, pId:1, name:"特定关键词地图", open:true},
-            { id:141, pId:14, name:"展示", checked:true},
-            { id:142, pId:14, name:"删除"},
-            { id:143, pId:14, name:"修改"},
-
-            { id:15, pId:1, name:"搜索功能", open:true},
-            { id:151, pId:15, name:"提供", checked:true},
-            { id:152, pId:15, name:"隐藏"},
+//
+//            { id:14, pId:1, name:"特定关键词地图", open:true},
+//            { id:141, pId:14, name:"展示", checked:true},
+//            { id:142, pId:14, name:"删除"},
+//            { id:143, pId:14, name:"修改"},
+//
+//            { id:15, pId:1, name:"搜索功能", open:true},
+//            { id:151, pId:15, name:"提供", checked:true},
+//            { id:152, pId:15, name:"隐藏"},
 
 
 //            { id:14, pId:1, name:"随意勾选 1-3"},
@@ -202,7 +202,7 @@
 
         <div class="templatemo-content-widget white-bg">
             <div class="panel-heading border-radius-10" style="background-color:#39ADB4;border-radius: 8px;">
-                <h2 style="color:white">权限管理修改
+                <h2 style="color:white">权限管理
 
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle"
@@ -230,8 +230,8 @@
                         <ul id="treeDemo" class="ztree"></ul>
                     </div>
                 </div>
-                <%--<input type="text" id="hid_checked_menu" name="hid_checked_menu"/>--%>
-                <input type="submit" onclick="getMenuId()"  value="确定修改"/>
+                <input type="text" id="hid_checked_menu" name="hid_checked_menu"/>
+                <input type="submit" onclick="getMenuId()"  value="提交"/>
 
 
         </div>

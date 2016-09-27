@@ -8,7 +8,7 @@ public class Menu {
     private String m_name;
     private String m_icon;
     private String m_url;
-    private Menu parent_id;
+    private String parent_id;
 
     public String getM_id() {
         return m_id;
@@ -42,11 +42,11 @@ public class Menu {
         this.m_url = m_url;
     }
 
-    public Menu getParent_id() {
+    public String getParent_id() {
         return parent_id;
     }
 
-    public void setParent_id(Menu parent_id) {
+    public void setParent_id(String parent_id) {
         this.parent_id = parent_id;
     }
 
